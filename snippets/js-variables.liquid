@@ -1,0 +1,64 @@
+<script>
+  window.theme = {
+    shopUrl: '{{ shop.url }}',
+    routes: {
+      root_url: '{{ routes.root_url }}',
+      account_url: '{{ routes.account_url }}',
+      account_login_url: '{{ routes.account_login_url }}',
+      account_logout_url: '{{ routes.account_logout_url }}',
+      account_recover_url: '{{ routes.account_recover_url }}',
+      account_register_url: '{{ routes.account_register_url }}',
+      account_addresses_url: '{{ routes.account_addresses_url }}',
+      collections_url: '{{ routes.collections_url }}',
+      all_products_collection_url: '{{ routes.all_products_collection_url }}',
+      search_url: '{{ routes.search_url }}',
+      cart_url: '{{ routes.cart_url }}',
+      cart_update_url: '{{ routes.cart_update_url }}',
+      cart_add_url: '{{ routes.cart_add_url }}',
+      cart_change_url: '{{ routes.cart_change_url }}',
+      cart_clear_url: '{{ routes.cart_clear_url }}',
+      product_recommendations_url: '{{ routes.product_recommendations_url }}',
+    },
+    info: { name: 'District' },
+    strings: {
+      addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+      preOrder: `{{ 'products.product.preorder' | t }}`,
+      soldOut: `{{ 'products.product.sold_out' | t }}`,
+      unavailable: `{{ 'products.product.unavailable' | t }}`,
+      addressError: `{{ 'sections.map.address_error' | t }}`,
+      addressNoResults: `{{ 'sections.map.address_no_results' | t }}`,
+      addressQueryLimit: `{{ 'sections.map.address_query_limit_html' | t }}`,
+      authError: `{{ 'sections.map.auth_error_html' | t }}`,
+      unitPrice: `{{ 'products.product.price.unit_price' | t }}`,
+      unitPriceSeparator: `{{ 'accessibility.unit_price_separator' | t }}`,
+    },
+    cartStrings: {
+      error: `{{ 'sections.cart.cart_error' | t }}`,
+      quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
+    },
+    pageType: `{{ request.page_type }}`,
+    customer: {% if customer %}true{% else %}false{% endif %},
+    moneyFormat: {{ shop.money_format | json }},
+    ajaxCartEnable: true,
+    cartData: {{ cart | json }},
+    mobileBreakpoint: 768,
+    packages: [],
+  };
+  theme.loadPackages = (packages) => {
+    packages.forEach((package) => {
+      if (!theme.packages.includes(package)) {
+        const placeholderScript = document.querySelector(`script[data-package="${package}"]`);
+        if (!placeholderScript) return;
+
+        const src = placeholderScript.dataset.src;
+        const script = document.createElement('script');
+        script.src = src;
+        script.async = false;
+        script.defer = true;
+        document.body.append(script);
+        theme.packages.push(package);
+      }
+    });
+  };
+  document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+</script>

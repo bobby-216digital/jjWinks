@@ -1,0 +1,549 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "presets": {
+    "District": {
+      "general_text_color": "#4f4f4f",
+      "general_title_color": "#000000",
+      "general_section_border": "#ededed",
+      "general_background_color": "#ffffff",
+      "general_secondary_background_color": "#f8f8f8",
+      "top_bar_background_color": "#ececec",
+      "top_bar_text_color": "#333333",
+      "header_text_color": "#000000",
+      "header_title_color": "#000000",
+      "header_accent_color": "#008080",
+      "header_background_color": "#ffffff",
+      "footer_color_text": "#333333",
+      "footer_color_accent": "#333333",
+      "footer_color_background": "#ececec",
+      "typography_body_font": "ibm_plex_sans_n4",
+      "typography_headings_font": "archivo_narrow_n4",
+      "typography_navigation_font": "ibm_plex_sans_n4",
+      "sections": {
+        "promos": {
+          "type": "promos",
+          "blocks": {
+            "announcement-bar-0": {
+              "type": "announcement-bar",
+              "settings": {
+                "title": "Promote free shipping, an upcoming sale, or an announcement.",
+                "link": "",
+                "color_background": "#008080",
+                "color_text": "#ffffff",
+                "homepage_limit": false,
+                "show_for": "both",
+                "bar_size": "default",
+                "bar_placement": "top",
+                "autohide": false,
+                "autohide_delay_range": 15
+              }
+            }
+          },
+          "block_order": [
+            "announcement-bar-0"
+          ],
+          "settings": {}
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "newsletter",
+              "settings": {
+                "title": "Newsletter"
+              }
+            },
+            "footer-1": {
+              "type": "menu",
+              "settings": {
+                "title": "Customer care",
+                "footer_linklist": "footer"
+              }
+            },
+            "footer-2": {
+              "type": "menu",
+              "settings": {
+                "title": "Featured collections",
+                "footer_linklist": "main-menu"
+              }
+            },
+            "footer-3": {
+              "type": "contact",
+              "settings": {
+                "title": "Get in touch",
+                "show_contact": true,
+                "phone": "1.877.555.9300",
+                "contact_text": "Contact Us",
+                "contact_link": "shopify://pages/contact-us",
+                "address": "",
+                "show_social": true
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1",
+            "footer-2",
+            "footer-3"
+          ],
+          "settings": {
+            "show_payment_icons": true,
+            "show_locale_selector": true,
+            "show_currency_selector": true,
+            "trust_richtext": ""
+          }
+        }
+      }
+    },
+    "Energy": {
+      "general_text_color": "#3b3a3d",
+      "general_title_color": "#3b3a3d",
+      "general_theme_color": "#442778",
+      "general_accent_color": "#442778",
+      "general_section_border": "#fafafa",
+      "general_background_color": "#fafafa",
+      "general_secondary_background_color": "#ffffff",
+      "top_bar_background_color": "#65636a",
+      "top_bar_text_color": "#ffffff",
+      "header_text_color": "#ffffff",
+      "header_title_color": "#d6d4da",
+      "header_accent_color": "#ffffff",
+      "header_background_color": "#1b1b1b",
+      "footer_color_text": "#d6d4da",
+      "footer_color_accent": "#ffffff",
+      "footer_color_background": "#1b1b1b",
+      "typography_body_font": "lato_n4",
+      "typography_headings_font": "lato_n7",
+      "typography_navigation_font": "lato_n4",
+      "sections": {
+        "promos": {
+          "type": "promos",
+          "blocks": {
+            "announcement-bar-0": {
+              "type": "announcement-bar",
+              "settings": {
+                "title": "Promote free shipping, an upcoming sale, or an announcement.",
+                "link": "",
+                "color_background": "#482e78",
+                "color_text": "#ffffff",
+                "homepage_limit": false,
+                "show_for": "both",
+                "bar_size": "default",
+                "bar_placement": "top",
+                "autohide": false,
+                "autohide_delay_range": 15
+              }
+            }
+          },
+          "block_order": [
+            "announcement-bar-0"
+          ],
+          "settings": {}
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "minimal_padding": "minimal",
+            "scroll_lock": true,
+            "full_width": true,
+            "logo_max_width": 280,
+            "header_layout": "horizontal",
+            "main_linklist": "main-menu",
+            "mega_menu": false,
+            "uppercase_menu": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "newsletter",
+              "settings": {
+                "title": "Newsletter"
+              }
+            },
+            "footer-1": {
+              "type": "menu",
+              "settings": {
+                "title": "Customer care",
+                "footer_linklist": "footer"
+              }
+            },
+            "footer-2": {
+              "type": "menu",
+              "settings": {
+                "title": "Featured collections",
+                "footer_linklist": "main-menu"
+              }
+            },
+            "footer-3": {
+              "type": "contact",
+              "settings": {
+                "title": "Get in touch",
+                "show_contact": true,
+                "phone": "1.877.555.9300",
+                "contact_text": "Contact Us",
+                "contact_link": "shopify://pages/contact-us",
+                "address": "",
+                "show_social": true
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1",
+            "footer-2",
+            "footer-3"
+          ],
+          "settings": {
+            "show_payment_icons": true,
+            "show_locale_selector": true,
+            "show_currency_selector": true,
+            "trust_richtext": ""
+          }
+        }
+      }
+    },
+    "Coast": {
+      "general_text_color": "#4f4f4f",
+      "general_title_color": "#000000",
+      "general_section_border": "#ffffff",
+      "general_background_color": "#ffffff",
+      "general_secondary_background_color": "#ffffff",
+      "top_bar_background_color": "#222f3e",
+      "top_bar_text_color": "#e9f9ff",
+      "header_text_color": "#000000",
+      "header_title_color": "#000000",
+      "header_accent_color": "#00aeff",
+      "header_background_color": "#ffffff",
+      "footer_color_text": "#e9f9ff",
+      "footer_color_accent": "#ffffff",
+      "footer_color_background": "#222f3e",
+      "typography_body_font": "ff_tisa_n4",
+      "typography_headings_font": "ff_tisa_n4",
+      "sections": {
+        "promos": {
+          "type": "promos",
+          "blocks": {
+            "announcement-bar-0": {
+              "type": "announcement-bar",
+              "settings": {
+                "title": "Promote free shipping, an upcoming sale, or an announcement.",
+                "link": "",
+                "color_background": "#00aeff",
+                "color_text": "#ffffff",
+                "homepage_limit": false,
+                "show_for": "both",
+                "bar_size": "large",
+                "bar_placement": "top",
+                "autohide": false,
+                "autohide_delay_range": 15
+              }
+            }
+          },
+          "block_order": [
+            "announcement-bar-0"
+          ],
+          "settings": {
+            "scroll_lock": true
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "minimal_padding": "normal",
+            "scroll_lock": false,
+            "full_width": false,
+            "logo_max_width": 280,
+            "header_layout": "horizontal",
+            "main_linklist": "main-menu",
+            "mega_menu": false,
+            "uppercase_menu": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "newsletter",
+              "settings": {
+                "title": "Newsletter"
+              }
+            },
+            "footer-1": {
+              "type": "menu",
+              "settings": {
+                "title": "Customer care",
+                "footer_linklist": "footer"
+              }
+            },
+            "footer-2": {
+              "type": "menu",
+              "settings": {
+                "title": "Featured collections",
+                "footer_linklist": "main-menu"
+              }
+            },
+            "footer-3": {
+              "type": "contact",
+              "settings": {
+                "title": "Get in touch",
+                "show_contact": true,
+                "phone": "1.877.555.9300",
+                "contact_text": "Contact Us",
+                "contact_link": "shopify://pages/contact-us",
+                "address": "",
+                "show_social": true
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1",
+            "footer-2",
+            "footer-3"
+          ],
+          "settings": {
+            "show_payment_icons": true,
+            "show_locale_selector": true,
+            "show_currency_selector": true,
+            "trust_richtext": ""
+          }
+        }
+      }
+    }
+  },
+  "current": {
+    "general_text_color": "#4f4f4f",
+    "general_title_color": "#000000",
+    "general_theme_color": "#000000",
+    "general_accent_color": "#839565",
+    "general_section_border": "#b2b5b6",
+    "general_background_color": "#ffffff",
+    "general_secondary_background_color": "#ececec",
+    "top_bar_background_color": "#ececec",
+    "top_bar_text_color": "#333333",
+    "header_text_color": "#000000",
+    "header_title_color": "#000000",
+    "header_accent_color": "#000000",
+    "header_background_color": "#ffffff",
+    "footer_color_text": "#000000",
+    "footer_color_accent": "#000000",
+    "footer_color_background": "#ffffff",
+    "typography_body_font": "avenir_next_n4",
+    "typography_headings_font": "century_gothic_n4",
+    "typography_headings_capitalize": false,
+    "typography_navigation_font": "century_gothic_n4",
+    "favicon": "shopify://shop_images/jjwinks-favicon.webp",
+    "gift_box_product": "gift-wrapping",
+    "gift_note_product": "gift-note",
+    "cart_show_progress_bar": false,
+    "cart_incomplete_progress_bar_message": "Your [[money]] away from 25% off",
+    "cart_complete_progress_bar_message": "Congrats! You get 25% off your purchase!",
+    "cart_progress_bar_max": 250,
+    "cart_small_incomplete_progress_bar_message": "Your [[money]] away from 25% off",
+    "cart_small_complete_progress_bar_message": "Congrats! You get 25% off your purchase!",
+    "social_facebook_url": "https://www.facebook.com/JJwinks",
+    "social_instagram_url": "https://www.instagram.com/JJwinks",
+    "social_pinterest_url": "https://www.pinterest.com/jjwinks0054/_shop",
+    "checkout_logo_image": "shopify://shop_images/jj_logo_blk_ntag.jpg",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "small",
+    "sections": {
+      "promos": {
+        "type": "promos",
+        "blocks": {
+          "announcement-bar-0": {
+            "type": "announcement-bar",
+            "settings": {
+              "title": "25% to 70% off Sitewide NO CODE NEEDED | Free Standard Shipping at $150+ for mainland USA",
+              "link": "shopify://collections/the-light-hug-collection",
+              "color_background": "#000000",
+              "color_text": "#ffffff",
+              "homepage_limit": false,
+              "show_for": "both",
+              "bar_size": "default",
+              "bar_placement": "top",
+              "autohide": false,
+              "autohide_delay_range": 15
+            }
+          },
+          "announcement_bar_pGap4W": {
+            "type": "announcement-bar",
+            "settings": {
+              "title": "Extended Holiday Returns. All orders placed now through DEC 25 can be returned through FEB 1",
+              "link": "",
+              "color_background": "#4f4f4f",
+              "color_text": "#FFFFFF",
+              "homepage_limit": false,
+              "show_for": "both",
+              "bar_size": "default",
+              "bar_placement": "top",
+              "autohide": false,
+              "autohide_delay_range": 15
+            }
+          }
+        },
+        "block_order": [
+          "announcement-bar-0",
+          "announcement_bar_pGap4W"
+        ],
+        "settings": {
+          "scroll_lock": false
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-1": {
+            "type": "menu",
+            "settings": {
+              "title": "Information",
+              "text_richtext": "<p></p>",
+              "footer_linklist": "customer-service-1"
+            }
+          },
+          "footer-2": {
+            "type": "menu",
+            "settings": {
+              "title": "Help from the JJ team",
+              "text_richtext": "<p></p>",
+              "footer_linklist": "information"
+            }
+          },
+          "footer-3": {
+            "type": "contact",
+            "settings": {
+              "title": "Get in touch",
+              "show_contact": true,
+              "phone": "1.323.990.7267",
+              "contact_text": "Email Us",
+              "contact_link": "mailto:customerservice@jjwinks.com",
+              "address": "<p></p>",
+              "show_social": true
+            }
+          }
+        },
+        "block_order": [
+          "footer-1",
+          "footer-2",
+          "footer-3"
+        ],
+        "settings": {
+          "show_payment_icons": false,
+          "show_locale_selector": true,
+          "show_currency_selector": true,
+          "trust_richtext": "<p></p>"
+        }
+      },
+      "header-top": {
+        "type": "header-top",
+        "settings": {
+          "scroll_lock": false,
+          "full_width": false,
+          "qr_popup": true,
+          "main_linklist": "main-nav-2022",
+          "show_locale_selector": true,
+          "show_currency_selector": true
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "minimal_padding": "normal",
+          "scroll_lock": false,
+          "full_width": false,
+          "logo": "shopify://shop_images/jj_logo_blk_ntag.jpg",
+          "logo_max_width": 300,
+          "header_layout": "horizontal",
+          "main_linklist": "main-nav-bfcm",
+          "mega_menu": false,
+          "uppercase_menu": false
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "7570552984445421165": {
+        "type": "shopify://apps/yotpo-product-reviews-photos/blocks/settings/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+        "disabled": false,
+        "settings": {}
+      },
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "8232603958289840080": {
+        "type": "shopify://apps/seo-manager/blocks/seomanager-404/c54c366f-d4bb-4d52-8d2f-dd61ce8e7e12",
+        "disabled": false,
+        "settings": {}
+      },
+      "17992116214976573926": {
+        "type": "shopify://apps/seo-manager/blocks/seomanager/c54c366f-d4bb-4d52-8d2f-dd61ce8e7e12",
+        "disabled": false,
+        "settings": {}
+      },
+      "8962992520437913685": {
+        "type": "shopify://apps/yotpo-loyalty-rewards/blocks/loader-app-embed-block/2f9660df-5018-4e02-9868-ee1fb88d6ccd",
+        "disabled": true,
+        "settings": {
+          "inject_modules_loader": false,
+          "inject_sdk_loader": false
+        }
+      },
+      "15885745614559378752": {
+        "type": "shopify://apps/accessibly/blocks/app-embed/4b59303e-1141-4c8a-945f-bf4adb516864",
+        "disabled": false,
+        "settings": {
+          "themeColor": "#574cd5",
+          "iconColor": "#574cd5",
+          "showLogo": true,
+          "topBottomPosition": 10,
+          "rightLeftPosition": 10,
+          "iconSize": "extra-small",
+          "iconCustomSize": 30,
+          "position": "bottom-left"
+        }
+      },
+      "4705145147225299685": {
+        "type": "shopify://apps/tolstoy-shoppable-video-ugc/blocks/widget-block/06fa8282-42ff-403e-b67c-1936776aed11",
+        "disabled": false,
+        "settings": {}
+      },
+      "15879463164198068590": {
+        "type": "shopify://apps/tapcart-mobile-app/blocks/ck_loader/604cad6b-3841-4da3-b864-b96622b4adb8",
+        "disabled": false,
+        "settings": {}
+      },
+      "1291562577487733835": {
+        "type": "shopify://apps/black-crow-more-new-customers/blocks/blackcrow_ai_script/3e73f597-cb71-47a1-8a06-0c931482ecd2",
+        "disabled": false,
+        "settings": {}
+      },
+      "14327677521557774844": {
+        "type": "shopify://apps/simprosys-google-shopping-feed/blocks/core_settings_block/1f0b859e-9fa6-4007-97e8-4513aff5ff3b",
+        "disabled": true,
+        "settings": {}
+      },
+      "17676059084223943535": {
+        "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
+        "disabled": false,
+        "settings": {}
+      },
+      "10864971697205422121": {
+        "type": "shopify://apps/gorgias-live-chat-helpdesk/blocks/gorgias/a66db725-7b96-4e3f-916e-6c8e6f87aaaa",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  }
+}

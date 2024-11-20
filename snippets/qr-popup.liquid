@@ -1,0 +1,141 @@
+<style type="text/css">
+  .popup-wrapper {
+    display: none;
+    opacity: 0;
+    border-radius: 5px;
+    max-width: 450px;
+    position: fixed;
+    z-index: 55;
+    inset: 0;
+    margin: auto;
+    transition: all .5s ease;
+  }
+
+  .popup-wrapper.popup-opened {
+    display: grid;
+    place-content: center;
+    opacity: 1;
+     transition: all .2s ease;
+  }
+  .popup-content {
+    position: relative;
+    padding: 1.5em .5em;
+    background: var(--primary-accent-color);
+  }
+  .popup-content img {
+    max-width: 450px;
+    margin: 0 auto;
+  } 
+  .icon-plus {
+    width: 100%;
+    max-width: 27px;
+    margin: 0 1rem 0 0;
+    background: var(--primary-accent-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: max-content;
+    gap: .5em;
+    padding: .5em .8em;
+    place-content: center;
+    border-radius: 33px;
+    color: white;
+    position: relative;
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .icon-plus {
+     display: none;
+    }
+  }
+  
+  .icon-plus:after {
+    opacity: 0;
+    transform: translateX(30%);
+    content: 'Download our App';
+    position: absolute;
+    top: -79%;
+    right: -110%;
+    display: block;
+    padding: .1em .2em;
+    width: max-content;
+    white-space: nowrap;
+    color: #fff;
+    background: var(--primary-accent-color);
+    transition: all .5s ease;
+  }
+  .icon-plus:hover:after {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1s ease;
+  }
+
+  .icon-plus svg {
+    color: var(--primary-accent-text-color);
+    fill: var(--primary-accent-text-color)
+  }
+  .icon-minus svg {
+    color: var(--primary-accent-color);
+    fill: var(--primary-accent-color);
+  }
+  .icon-plus:hover, .icon-minus:hover {
+    cursor: pointer;
+  }
+  .popup-content h2 {
+    color: var(--primary-accent-text-color);
+    font-weight: 900;
+    padding: .5em .7em;
+  }
+  .icon-minus {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.2em 0;
+    width: 45px;
+    height: 45px;
+    color: var(--primary-accent-color);
+    background: white;
+    transition: all .2s ease;
+  }
+  .icon-minus:hover {
+    border-radius: 0 0 0 26px;
+    transition: all .2s ease;
+  }
+  .section__header-top.no-z-index,
+  .section__promos.no-z-index {
+    z-index: 2;
+  }
+</style>
+
+<div class="popup-wrapper" id="qr-popup">
+
+
+ <div class="popup-content">
+  <div class="icon-minus" id="popup-close">
+    {% render 'icon-ui-minus' %}
+  </div>
+  <img src="{{ 'qr.png' | asset_url}}" loading="lazy">
+  <h2>DOWNLOAD OUR <br> JJ WINKS APP & <br> GET 15% 0FF</h2>
+</div>
+</div>
+
+<script type="text/javascript">
+  let popup = document.getElementById('qr-popup');
+  let popupOpen = document.querySelectorAll('.popup-open');
+  let popupClose = document.getElementById('popup-close');
+
+
+  function toggleActive(button) {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      popup.classList.toggle('popup-opened');
+      document.querySelector('.section__header-top').classList.toggle('no-z-index');
+      document.querySelector('.section__promos').classList.toggle('no-z-index');
+    })
+  }
+
+  popupOpen.forEach(element => toggleActive(element));
+  toggleActive(popupClose);
+</script>
+

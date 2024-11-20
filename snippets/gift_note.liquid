@@ -1,0 +1,61 @@
+{%- liquid
+  assign gift_note = settings.gift_note_product
+%}
+
+<style>
+  .gift-box__wrapper {
+    margin: 0 auto;
+  }
+  .gift-box__form {
+    max-width: 50%;
+    transition: all 500ms ease;
+  }
+  .field label {
+    text-transform: capitalize
+  }
+  .gift-note__buton {
+    transition:background 500ms ease
+  }
+  @media(max-width: 768px) {
+    .gift-box__form {
+      text-align: center;
+    }
+
+    .gift-box__form {
+      margin: 0 auto;
+      max-width: unset;
+    }
+  }
+  .gift-note-legend {
+    font-weight: 600
+  }
+</style>
+
+
+  <div class="gift-box__wrapper p-5">
+    <input name="id" value="{{ gift_note.selected_or_first_available_variant.id }}" type="hidden">
+    <input name="pr" value="{{ gift_note.price | money }}" type="hidden">
+    <input name="cur" value="{{ cart.currency.symbol }}" type="hidden">
+
+    <input name="url_remove" value="{{ gift_note.selected_or_first_available_variant.url_to_remove }}" type="hidden">
+    <p class="gift-note-legend">Add a Free Gift note to your packing slip </p> 
+    <div class="gift-box__form py-5 gift-form">
+      <div class="field max-w-md md:max-w-none mx-auto text-base md:text-sm" >
+        <label for="from">From:</label>
+        <input type="text" name="from" placeholder="From" class="from">
+      </div>
+      <div class="field py-5 max-w-md md:max-w-none mx-auto text-base md:text-sm">
+        <label for="to">To:</label>
+        <input type="text" name="to" placeholder="To" class="to">
+      </div>
+      <div class="field py-5 max-w-md md:max-w-none mx-auto text-base md:text-sm">
+        <label for="message">Message</label>
+        <textarea type="text" name="message" placeholder="Leave a message" class="min-h-[6rem] md:min-h-[10rem] max-w-md md:max-w-none mx-auto text-base md:text-sm bg-primary-secondary-background-50 message"></textarea>
+      </div>
+      <button class="gift-note__buton button button--cta button--solid navigable gift-note" type="button">ADD A GIFT NOTE
+    </button>
+    </div>
+  
+  </div>
+
+

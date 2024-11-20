@@ -1,0 +1,40 @@
+<script>
+  (function (algolia) {
+    'use strict';
+
+    algolia.instantSearchFacetItem = function instantSearchFacetItem(item, html) {
+      
+      let string = '';
+      if ('color' in item && item.color != null ) {
+        if (item.color.type == 'image') {
+          console.log("item", item)
+          string = html` <img
+            style="width:21.5px; height: 21.5px;"
+            class="object-contain rounded-full"
+            src="${item.color.value}"
+            alt="icon-swatch"
+          />`;
+        } else {
+          string = html`<span
+            class="swatch-item__color"
+            style="background-color: ${item.color.value};min-width: 21.5px;min-height: 21.5px;border-radius: 10px;"
+          ></span>`;
+        }
+      }
+      return html`<label
+        class=" swatch-item__label ${item.cssClasses.label}"
+        style="display: flex;align-content: center;align-items: center;"
+      >
+        ${string}
+        <span class="swatch-item__value" style="margin-left: 4px;height: 100%;margin-top: 3px;">
+          ${item.type === 'disjunctive' &&
+          (item.isRefined
+            ? html`<input type="checkbox" class="${item.cssClasses.checkbox}" checked />`
+            : html`<input type="checkbox" class="${item.cssClasses.checkbox}" />`)}
+          ${item.label}
+        </span>
+        <span class="${item.cssClasses.count}"> ${algolia.helpers.formatNumber(item.count)} </span>
+      </label>`;
+    };
+  })(window.algoliaShopify);
+</script>

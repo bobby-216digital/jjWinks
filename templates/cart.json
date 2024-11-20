@@ -1,0 +1,91 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {
+        "show_breadcrumbs": "all",
+        "show_social_icons": true
+      }
+    },
+    "cart-items": {
+      "type": "main-cart-items",
+      "settings": {
+        "show_vendor": false
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "agreement": {
+          "type": "agreement",
+          "settings": {
+            "agreement_text": "<p>I agree with the terms and conditions.</p>"
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "agreement",
+        "buttons"
+      ],
+      "settings": {
+        "show_notes": true
+      }
+    },
+    "featured-products": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured collection",
+        "richtext": "",
+        "content_placement": "top",
+        "button_label": "See More",
+        "button_link": "",
+        "button_placement": "top",
+        "collection": "all",
+        "product_count_range": 4,
+        "product_columns": 4,
+        "product_mobile_columns": "2",
+        "product_image_ratio": "square",
+        "product_image_crop": false,
+        "product_image_hover": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "product_badge_placement": "bottom-right",
+        "product_swatches": false,
+        "collection_swatches_shape": "circle"
+      }
+    },
+    "cart-modal-custom": {
+      "type": "cart-modal-custom",
+      "disabled": true,
+      "settings": {
+        "headline": "Save $15 OFF on your first order!",
+        "content": "use coupon CHECKOUT15"
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "cart-items",
+    "cart-footer",
+    "featured-products",
+    "cart-modal-custom"
+  ]
+}

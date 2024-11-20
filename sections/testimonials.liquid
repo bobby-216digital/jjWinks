@@ -1,0 +1,158 @@
+<link rel="stylesheet" href="{{ 'flickity.css' | asset_url }}">
+<script src="{{ 'flickity.pkgd.min.js' | asset_url }}" async></script>
+
+<style>
+  .testimonials-wrapper {
+    padding-top: {{ section.settings.padding-top }}px;
+    padding-bottom: {{ section.settings.padding-bottom }}px;
+  }
+  @media only screen and (min-width: 989px) {
+    .testimonials-wrapper {
+      display: none;
+    }
+  }
+
+  .testimonial {
+    text-align: center;
+    opacity: .3;
+    transition: all 150ms ease;
+    padding: 1em .5em;
+    margin: 0 10%;
+  }
+  .testimonial > img {
+    max-width: 30px;
+    margin: 0 auto;
+    padding: .3em 0;
+  }
+
+  .testimonial.carousel-cell.is-selected {
+    opacity: 1;
+    transition: all 120ms ease
+  }
+  .testimonial blockquote {
+    padding: 0 .5em;
+  }
+  .testimonial h4 {
+    padding: .5em 0;
+  }
+</style>
+
+<div class="testimonials-wrapper">
+  <input type="hidden" name="" value="{{ 'quote-left.svg' | asset_url }}" id="svg-img">
+  <h2 class="rich-text__title text-center text-2xl md:text-3xl">{{ section.settings['section-title'] }}</h2>
+
+  <div class="testimonials-carousel" id="testimonial-slider"></div>
+</div>
+
+{% javascript %}
+  const mql = window.matchMedia('(max-width: 600px)');
+  const testimonialSlider = document.getElementById('testimonial-slider');
+  const sliderContainer = document.querySelector('.testimonials-carousel');
+  const svgSource = document.getElementById('svg-img').value;
+
+  function initSlider() {
+    if (mql.matches == true) {
+      var flktyTestimonial = new Flickity(testimonialSlider, {
+        // options
+        cellAlign: 'center',
+        contain: true,
+        resize: true,
+        wrapAround: true,
+        groupCells: 1,
+        pageDots: false,
+      });
+    }
+  }
+
+  function getAuth() {
+    const options = {
+      method: 'POST',
+      headers: { accept: 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        grant_type: 'client_credentials',
+        client_secret: 'oX62XcFAAIHtlr0zXTscU1CGuR77zJhfJiJm2knN',
+        client_id: 'cQaIDE3anORQHtziZ7dV84M4uBAG5iX4liY1t9ci',
+      }),
+    };
+
+    fetch('https://api.yotpo.com/oauth/token', options)
+      .then((response) => response.json())
+      .then((response) => fetchReviews(response.access_token))
+      .catch((err) => console.error(err));
+  }
+
+  function fetchReviews(token) {
+    const options2 = {
+      method: 'GET',
+      headers: { accept: 'application/json', 'Content-Type': 'application/json' },
+    };
+
+    fetch(`https://api.yotpo.com/v1/apps/cQaIDE3anORQHtziZ7dV84M4uBAG5iX4liY1t9ci/reviews?utoken=${token}`, options2)
+      .then((response) => response.json())
+      .then((response) => printReviews(response))
+      .catch((err) => console.error(err));
+  }
+
+  function printReviews(reviews) {
+    reviews.reviews.forEach((review) => {
+
+      if (review.score > 4) {
+        sliderContainer.innerHTML += `
+       <div class="testimonial carousel-cell">
+        <img src="${svgSource}" loading="lazy">
+        <blockquote>${review.content}</p></blockquote>
+        <h4>${review.name}</h4>
+        </div>
+       `;
+      }
+    
+    });
+    initSlider()
+  }
+
+  window.addEventListener('DOMContentLoaded', (e) => {
+    e.preventDefault();
+
+    getAuth();
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.testimonials.name",
+  "class": "testimonial-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section-title",
+      "default": "What They Say",
+      "label": "Section title"
+    },
+    {
+      "type": "range",
+      "id": "padding-top",
+      "min": 0,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Section Padding Top",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "min": 0,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Section Padding Bottom",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.testimonials.presets.name"
+    }
+  ]
+}
+{% endschema %}

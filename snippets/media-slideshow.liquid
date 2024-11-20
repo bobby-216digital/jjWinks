@@ -1,0 +1,205 @@
+<media-slideshow id="MediaSlideshow-{{ section.id }}" data-zoom="{{ zoom }}" data-lightbox="{{ lightbox }}">
+  {%- liquid 
+    assign thumbnails_placement = section.settings.thumbnails_placement
+    if thumbnails_placement == 'bottom'
+      assign show_slider_ui = false
+    else
+      assign show_slider_ui = true
+    endif
+  -%}
+
+  {%- liquid 
+    capture slide_direction
+      if settings.typography_rtl
+        echo 'rtl'
+      else
+        echo 'ltr'
+      endif
+    endcapture
+  -%}
+
+  <div class="product__media-container product__media-container--{{ thumbnails_placement }} media">
+    <div class="splide media__main"
+      data-thumbnails-placement="{{ thumbnails_placement }}"
+      data-media-type="main"
+      data-media-ratio="{{ section.settings.image_ratio }}"
+      data-options='{
+        "type": "slide",
+        "rewind": "true",
+        "direction": "{{ slide_direction }}",
+        "autoplay": false,
+        "keyboard": "focused",
+        "gap": "0.5rem",
+        "arrows": {{ show_slider_ui }},
+        "pagination": {{ show_slider_ui }}
+      }'>
+      <div class="splide__track">
+        <ul class="splide__list">
+
+          {%- if product.selected_or_first_available_variant.featured_media != null -%}
+            {%- liquid 
+              assign featured_media = product.selected_or_first_available_variant.featured_media
+              assign image_preload = true
+              assign image_loading = ''
+            -%}
+            <li class="splide__slide relative product__media-image"
+              data-media-type="{{ featured_media.media_type }}"
+              data-media-id="{{ section.id }}-{{ featured_media.id }}">
+              {%- render 'product-media', 
+                media: featured_media,
+                image_preload: image_preload,
+                image_loading: image_loading,
+                loop: section.settings.enable_video_looping -%}
+            </li>
+          {%- endif -%}
+          {%- for media in product.media -%}
+            {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+              {%- liquid 
+                if forloop.first and image_preload != true
+                  assign image_preload = true
+                  assign image_loading = ''
+                else 
+                  assign image_preload = false
+                  assign image_loading = 'lazy'
+                endif
+              -%}
+              <li class="splide__slide relative product__media-image"
+                data-media-type="{{ media.media_type }}"
+                data-media-id="{{ section.id }}-{{ media.id }}">
+                {%- render 'product-media', 
+                  media: media,
+                  image_preload: image_preload,
+                  image_loading: image_loading,
+                  loop: section.settings.enable_video_looping -%}
+              </li>
+            {%- endunless -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+
+    {%- if first_3d_model -%}
+      <button
+        class="button product__xr-button"
+        type="button"
+        aria-label="{{ 'products.product.xr_button_label' | t }}"
+        data-shopify-xr
+        data-shopify-model3d-id="{{ first_3d_model.id }}"
+        data-shopify-title="{{ product.title | escape }}"
+        data-shopify-xr-hidden
+      >
+        <span class="inline-block w-3">{% render 'icon-ui-3d-model' %}</span>
+        <span>{{ 'products.product.xr_button' | t }}</span>
+      </button>
+    {%- endif -%}
+
+    {%- if thumbnails_placement == 'bottom' -%}
+      {%- liquid 
+        assign arrows_width = 4
+        assign thumb_width = 6
+        assign gap_width = 0.5
+
+        assign thumbs_width = thumb_width | times: product.media.size
+        assign gaps_width = gap_width | times: product.media.size | minus: gap_width
+        assign thumbnails_width = arrows_width | plus: thumbs_width | plus: gaps_width
+
+        capture thumbnails_style
+          if product.media.size < 7
+            echo 'style="width:'
+            echo thumbnails_width
+            echo 'rem;"'
+          endif
+        endcapture
+      -%}
+      <div class="media__thumbnails-container">
+        <div class="splide media__thumbnails"
+          data-media-type="thumbnails"
+          data-options='{
+            "fixedWidth": "6rem",
+            "fixedHeight": "6rem",
+            "breakpoints": {
+              "768": {
+                "fixedWidth": "4rem",
+                "fixedHeight": "4rem"
+              }
+            }, 
+            "perMove": 1,
+            "keyboard": "focused",
+            "trimSpace": true,
+            "focus": "center",
+            "gap": "0.5rem",
+            "rewind": true,
+            "isNavigation": true,
+            "pagination": false,
+            "arrows": true
+          }'>
+          <div class="splide__track">
+            <ul class="splide__list">
+              {%- if product.selected_or_first_available_variant.featured_media != null -%}
+                {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+                <li class="splide__slide relative product__media-image">
+                  {%- if featured_media.media_type == 'image' -%}
+                    {{ featured_media.preview_image | image_url: width: 180 | image_tag: 
+                      class: 'product__media-image',
+                      widths: '58, 90, 116, 180',
+                      sizes: '(min-width: 768px) 90px, 58px',
+                      loading: 'lazy' }}
+                    {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
+                      <div class="product__media-badge">{% render 'icon-ui-play' %}</div>
+                    {%- elsif media.media_type == 'model' -%}
+                      <div class="product__media-badge">{% render 'icon-ui-3d-model' %}</div>
+                    {%- endif -%}
+                  {%- endif -%}
+                </li>
+              {%- endif -%}
+              {%- for media in product.media -%}
+                {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+                  <li class="splide__slide relative product__media-image">                          
+                    {{ media.preview_image | image_url: width: 180 | image_tag: 
+                      class: 'product__media-image',
+                      widths: '58, 90, 116, 180',
+                      sizes: '(min-width: 768px) 90px, 58px',
+                      loading: 'lazy' }}
+                    {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
+                      <div class="product__media-badge">{% render 'icon-ui-play' %}</div>
+                    {%- elsif media.media_type == 'model' -%}
+                      <div class="product__media-badge">{% render 'icon-ui-3d-model' %}</div>
+                    {%- endif -%}
+                  </li>
+                {%- endunless -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        </div>
+      </div>
+    {%- elsif thumbnails_placement == 'left' or thumbnails_placement == 'right' -%}
+      <div class="media__thumbnails media__thumbnails--scrolling">
+        <ul>
+          {%- for media in product.media -%}
+            <li class="media__thumbnail {% if forloop.first %}media__thumbnail--active{% endif %}" tabindex="0" data-index="{{ forloop.index0 }}">
+              {{ media.preview_image | image_url: width: 180 | image_tag: 
+                class: 'product__media-image',
+                widths: '58, 90, 116, 180',
+                sizes: '(min-width: 768px) 90px, 58px',
+                loading: 'lazy' }}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="modal modal--lightbox" id="ModalLightbox-{{ section.id }}"
+    role="dialog"
+    aria-modal="true">
+    <button id="ModalLightboxClose-{{ section.id }}" type="button"
+      class="modal__close"
+      aria-label="{{ 'accessibility.close' | t }}">{% render 'icon-ui-close' %}</button>
+    <div class="modal__container"></div>
+    <div class="modal__background"
+      title="{{ 'accessibility.close' | t }}">
+      <span class="sr-only">{{ 'accessibility.close' | t }}</span>
+    </div>
+  </div>
+
+</media-slideshow>

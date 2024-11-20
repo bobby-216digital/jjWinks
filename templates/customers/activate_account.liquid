@@ -1,0 +1,60 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+<div class="customer activate-account py-section px-rail space-y-6"
+  data-section-id="{{ section.id }}"
+  data-section-type="activate-account">
+  <div class="activate-account__container text-center mx-auto max-w-screen">
+
+    <div class="activate-account__header mb-6 pb-4 border-b border-primary-section-border">
+      <h1 class="text-3xl md:text-4xl text-center">{{ 'customer.activate_account.title' | t }}</h1>
+    </div>
+
+    <div class="activate-account__content mx-auto">
+      <p>{{ 'customer.activate_account.subtext' }}</p>
+
+      {%- form 'activate_customer_password' -%}
+        {%- if form.errors -%}
+          <div class="activate-account__message px-4 py-2 bg-primary-secondary-background mb-4 prose">
+            <div class="outline-none mb-1" role="alert" tabindex="-1" autofocus>
+              <span class="inline-block w-3 mr-1 text-red-600">
+                {%- render 'icon-ui-error' -%}
+              </span> {{ form.errors | default_errors }}</div>
+          </div>
+        {%- endif -%}
+
+        <div class="activate-account__contain text-left max-w-[28rem] mx-auto space-y-4">
+          <div class="activate-account__field">
+            <label for="ActivateAccount-password">{{ 'customer.activate_account.password' | t }}</label>
+            <input id="ActivateAccount-password" type="password"
+              autocomplete="new-password"
+              name="customer[password]"
+              aria-required="true">
+          </div>
+
+          <div class="activate-account__field">
+            <label for="ActivateAccount-passwordconfirmation">{{ 'customer.activate_account.password_confirm' | t }}</label>
+            <input id="ActivateAccount-passwordconfirmation" type="password"
+              autocomplete="new-password"
+              name="customer[password_confirmation]"
+              aria-required="true">
+          </div>
+
+          <div class="flex items-center flex-col justify-center">
+            <button class="button button--cta button--solid">
+              {{ 'customer.activate_account.submit' | t }}
+            </button>
+            <button name="decline" class="button button--cta button--outline">
+              {{ 'customer.activate_account.cancel' | t }}
+            </button>
+          </div>
+        </div>
+
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+<script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/f1orBhbXQ6wixqnZuQ2HBQ" async></script>
+<div class="yotpo-widget-instance" data-yotpo-instance-id="197664"></div>
+<div class="yotpo-widget-instance" data-yotpo-instance-id="197663"></div>
+<div class="yotpo-widget-instance" data-yotpo-instance-id="197662"></div>
+<div class="yotpo-widget-instance" data-yotpo-instance-id="197666"></div>
+<div class="yotpo-widget-instance" data-yotpo-instance-id="197676"></div>

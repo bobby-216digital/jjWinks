@@ -1,0 +1,109 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {
+        "show_breadcrumbs": "all",
+        "show_social_icons": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "b87bafc1-b953-471f-8edc-11dec125bb06": {
+      "type": "collection-list",
+      "blocks": {
+        "template--14832702586922__b87bafc1-b953-471f-8edc-11dec125bb06-1666720435036ccc71-0": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gifts-for-wifey"
+          }
+        },
+        "template--14832702586922__b87bafc1-b953-471f-8edc-11dec125bb06-1666720435036ccc71-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gifts-for-the-new-mom"
+          }
+        },
+        "template--14832702586922__b87bafc1-b953-471f-8edc-11dec125bb06-1666720435036ccc71-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gifts-for-the-hostess"
+          }
+        },
+        "0e0de063-82bd-465c-97f0-950fc246a8a9": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gifts-for-your-bff"
+          }
+        },
+        "2484ca2d-772a-488a-9c62-5d8a953cc73e": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gifts-for-mom"
+          }
+        },
+        "2ffc1ab1-39d6-4e4b-aafe-af442f7af111": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gifts-for-professionals"
+          }
+        },
+        "11af73f4-34be-471d-88c1-f1ed01738a74": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gifts-under-100"
+          }
+        },
+        "3499f608-c513-47e4-8727-ec192325b205": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gifts-for-the-bride-1"
+          }
+        }
+      },
+      "block_order": [
+        "template--14832702586922__b87bafc1-b953-471f-8edc-11dec125bb06-1666720435036ccc71-0",
+        "template--14832702586922__b87bafc1-b953-471f-8edc-11dec125bb06-1666720435036ccc71-1",
+        "template--14832702586922__b87bafc1-b953-471f-8edc-11dec125bb06-1666720435036ccc71-2",
+        "0e0de063-82bd-465c-97f0-950fc246a8a9",
+        "2484ca2d-772a-488a-9c62-5d8a953cc73e",
+        "2ffc1ab1-39d6-4e4b-aafe-af442f7af111",
+        "11af73f4-34be-471d-88c1-f1ed01738a74",
+        "3499f608-c513-47e4-8727-ec192325b205"
+      ],
+      "settings": {
+        "title": "Holiday Gift Guide",
+        "full_width": false,
+        "section_padding": true,
+        "gutter": true,
+        "columns_range": 3,
+        "columns_mobile": "1",
+        "image_ratio": "100%",
+        "text_placement": "below",
+        "color_overlay": "#4f4f4f",
+        "color_overlay_hover": "#000000",
+        "color_overlay_text": "#FFFFFF",
+        "color_overlay_alpha_range": 0,
+        "zoom": true
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main",
+    "b87bafc1-b953-471f-8edc-11dec125bb06"
+  ]
+}

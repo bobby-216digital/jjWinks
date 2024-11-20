@@ -1,0 +1,108 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {
+        "show_breadcrumbs": "all",
+        "show_social_icons": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "6748429f-2eb1-4b70-8a40-905a1001ec72": {
+      "type": "collection-list",
+      "blocks": {
+        "template--14876319940650__6748429f-2eb1-4b70-8a40-905a1001ec72-16736565681bfeeec1-0": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gifts-for-wifey-mothersday"
+          }
+        },
+        "template--14876319940650__6748429f-2eb1-4b70-8a40-905a1001ec72-16736565681bfeeec1-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "valentines-gifts-for-the-new-mom"
+          }
+        },
+        "template--14876319940650__6748429f-2eb1-4b70-8a40-905a1001ec72-16736565681bfeeec1-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "mothersday-gifts-for-the-hostess"
+          }
+        },
+        "a303633d-7e81-442e-9e64-afc6303c15f8": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "valentines-gifts-for-your-bff"
+          }
+        },
+        "f5618dcc-ca02-4a2f-9293-c8b0806301b8": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gifts-for-women-mom-girlfriend-daughter"
+          }
+        },
+        "4458c821-d305-4a04-9451-3bcdf812b06d": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gifts-for-working-women"
+          }
+        },
+        "1e98d285-3f56-4e79-a58d-5e2040512856": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gift-guide-gifts-under-100"
+          }
+        },
+        "86495ec1-8945-420f-ba87-458211e7c5c4": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "valentines-gifts-for-the-bride"
+          }
+        }
+      },
+      "block_order": [
+        "template--14876319940650__6748429f-2eb1-4b70-8a40-905a1001ec72-16736565681bfeeec1-0",
+        "template--14876319940650__6748429f-2eb1-4b70-8a40-905a1001ec72-16736565681bfeeec1-1",
+        "template--14876319940650__6748429f-2eb1-4b70-8a40-905a1001ec72-16736565681bfeeec1-2",
+        "a303633d-7e81-442e-9e64-afc6303c15f8",
+        "f5618dcc-ca02-4a2f-9293-c8b0806301b8",
+        "4458c821-d305-4a04-9451-3bcdf812b06d",
+        "1e98d285-3f56-4e79-a58d-5e2040512856",
+        "86495ec1-8945-420f-ba87-458211e7c5c4"
+      ],
+      "settings": {
+        "title": "Valentine's Day Gift Guide",
+        "full_width": false,
+        "section_padding": true,
+        "gutter": true,
+        "columns_range": 3,
+        "columns_mobile": "1",
+        "image_ratio": "100%",
+        "text_placement": "below",
+        "color_overlay": "#4f4f4f",
+        "color_overlay_hover": "#000000",
+        "color_overlay_text": "#ffffff",
+        "color_overlay_alpha_range": 0,
+        "zoom": true
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main",
+    "6748429f-2eb1-4b70-8a40-905a1001ec72"
+  ]
+}

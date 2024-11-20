@@ -1,0 +1,228 @@
+<script>
+  (function (algolia, tem_swaches) {
+    'use strict';
+
+    algolia.instantSearchProductTemplate = (hit, html, components) => {
+      let productData = hit?.meta?.algolia?.variants || null;
+      const currentDay = new Date();
+      const colorOptions = productData ? productData.options.find(option => ['color', 'colors', 'colour'].includes(option.name.toLowerCase())) : null;
+      
+      if(colorOptions) {
+        colorOptions.values = colorOptions.values.filter(color => {
+          let validation = false;
+          productData.variants.forEach(variant => {
+            const tempColor = variant.selectedOptions.find(option => option.name.toLowerCase() == 'color');
+            if(tempColor && tempColor.value.toLowerCase() == color.toLowerCase() && ('start_date' in variant && 'end_date' in variant)) {
+              const startDate = new Date(variant.start_date);
+              const endDate = new Date(variant.end_date);
+              if(currentDay >= startDate || currentDay <= endDate) {
+                validation = true;
+              }
+            }
+            if(!('start_date' in variant) && !('end_date' in variant)) {
+              validation = true;
+            }
+          });
+          return validation;
+        });
+      }
+
+      const available = hit.inventory_available;
+      const on_sale = hit.compare_at_price > hit.price;
+      const isHex = /^#([0-9a-f]{3}){1,2}$/i;
+
+      const swatches = tem_swaches;
+      let valueColor = '';
+      let idVariant = hit.objectID;
+      if('meta' in hit && hit.meta.algolia && hit.meta.algolia.variants) {
+        if('variants' in hit.meta.algolia.variants && hit.meta.algolia.variants.variants.length > 0){
+          idVariant = hit.meta.algolia.variants.variants[0].id;
+        }
+        
+      }
+      if('color' in hit.options) {
+        valueColor = hit.options.color;
+      }else {
+        valueColor = hit.options.colour;
+      }
+      valueColor = productData ? productData.variants[0].selectedOptions[0].value : valueColor;
+
+      let price = hit.price;
+      let compare_at_price = hit.compare_at_price;
+      let tempHit  = hit;
+      let minValue = hit.price;
+      let maxValue = hit.price;
+      let containerPrice = '';
+      let priceEqual = false;
+      
+      if('meta' in hit && hit.meta.algolia && hit.meta.algolia.variants) {
+        if('variants' in hit.meta.algolia.variants && hit.meta.algolia.variants.variants.length > 0){
+          
+          const prices = hit.meta.algolia.variants.variants.map(variant => parseFloat(variant.price));
+
+          
+          minValue = Math.min(...prices).toFixed(2);
+          
+          maxValue = Math.max(...prices).toFixed(2);
+        }
+      }
+      if (minValue != maxValue) {
+        containerPrice = html`<div class="price">
+          ${ hit.tags && !hit.tags.includes('giftcard') && html`<strong class="price-item price-item--sale">
+            $${minValue} - $${maxValue}
+          </strong>` }
+        </div>`;
+      }else {
+        containerPrice = html`<div class="price">
+          ${ hit.tags && !hit.tags.includes('giftcard') && html`<strong class="price-item price-item--sale">
+            ${algolia.helpers.displayPrice(hit, false)}
+          </strong>` }
+          ${on_sale && html`<s class="price-item price-item--compare ais-hit--price-striked">
+            ${algolia.helpers.displayStrikedPrice(price, compare_at_price)}
+          </s>`}
+        </div>`;
+      }
+
+      if(!productData) productData = hit;
+
+      
+      return html`<div
+        id="ais-hit-${hit.objectID}"
+        data-algolia-index="${hit.index}"
+        data-algolia-position="${hit.productPosition}"
+        data-algolia-queryid="${hit.queryID}"
+        data-algolia-objectid="${hit.objectID}"
+        class="ais-hit ais-product relative"
+        data-handle="${hit.handle}"
+        data-variant-id="${idVariant}"
+        data-distinct="false"
+      >
+        <button data-with-epi="true" class="swym-button swym-add-to-wishlist-view-product product_${productData.id} right-0" data-swaction="addToWishlist" data-product-id="${productData.id}" data-variant-id="${hit.objectID}" data-product-url="{{ shop.url }}${algolia.helpers.instantsearchLink(hit)}"></button>
+
+        <div id="${hit.objectID}" class="product-card relative flex flex-col flex-wrap items-stretch space-y-3 h-full" data-product-url="${algolia.helpers.instantsearchLink(hit)}" data-product-available="${available}" data-product-on-sale="${ on_sale}" data-product-card="${productData.id}">
+          <div class="product-card__media relative z-20 flex justify-center aspect-w-1 aspect-h-1">
+            <div id="ais-hit--picture-${hit.objectID}" class="ais-hit--picture" style="background-image: url('${hit.product_image}')"></div>
+
+            <div class="product-card__labels-container inset-0 absolute quick_add_container">
+              {% comment %} ${!hit.collections.includes('e-gift-cards') && html`<div id="quick_add_container_${hit.objectID}" class="quick_add_layout">
+                <h5>quick add</h5>
+                <input type="hidden" name="size" id="size_${hit.objectID}" />
+                <input type="hidden" name="color" id="color_${hit.objectID}" value="${valueColor}" />
+
+                ${productData.options.filter(option => ['size', 'sizes'].includes(option.name.toLowerCase())).map(option => html`<ul class="quick_add_ul quick_add_sizes flex">
+                    ${option.values.map(value => html`<li class="mw-100 ais-hit--quick-add-size-button" data-target="${hit.objectID}">${value}</li>`)}
+                  </ul>`)}
+
+                <button class="quick_buy button button--outline button--large navigable" data-product-url="${algolia.helpers.instantsearchLink(hit)}" data-currency="{{ cart.currency.symbol }}" data-target-size="size_${hit.objectID}" data-target-color="color_${hit.objectID}" disabled>Add to Cart</button>
+                <span class="notification-quick-add" style="display:none;font-size: 10px;margin-top: 2px;color: #000"></span>
+              </div>`} {% endcomment %}
+
+              <div class="product-card__labels absolute bottom-1 right-1 space-x-2 text-2xs uppercase font-navigation font-weight-navigation-bolder tracking-tight">
+                ${on_sale == true && html`{%- if shop.metafields.theme.badge_on_sale and shop.metafields.theme.badge_on_sale.type == 'file_reference' -%}
+                  {{
+                    shop.metafields.theme.badge_on_sale.value | image_url: width: 160 | image_tag:
+                    class: 'w-20 inline-block'
+                    , widths: '80, 160'
+                    , sizes: '80px'
+                    , loading: 'lazy'
+                  }}
+                {%- else -%}
+                  <span class="label label--accent rounded-sm py-0.5 px-2 bg-primary-accent text-primary-accent-text">
+                    {{ 'products.product.on_sale' | t }}
+                  </span>
+                {%- endif -%}`}
+
+                ${available == false && html`{%- if shop.metafields.theme.badge_sold_out and shop.metafields.theme.badge_sold_out.type == 'file_reference' -%}
+                  {{
+                    shop.metafields.theme.badge_sold_out.value | image_url: width: 160 | image_tag:
+                    class: 'w-20 inline-block'
+                    , widths: '80, 160'
+                    , sizes: '80px'
+                    , loading: 'lazy'
+                  }}
+                {%- else -%}
+                  
+                {%- endif -%}`}
+                <span class="label label--basic rounded-sm py-0.5 px-2 bg-primary-background text-primary-accent sold-out-label" style="display:none">
+                  {{ 'products.product.sold_out' | t }}
+                </span>
+
+                ${hit.meta.theme && hit.meta.theme.label && html`<span class="label label--accent label--custom rounded-sm py-0.5 px-2 bg-primary-accent text-primary-accent-text">
+                  ${hit.meta.theme.label}
+                </span>`}
+              </div>
+            </div>
+          </div>
+
+          <div class="ais-hit--details">
+            <p class="ais-hit--title">
+              <a
+                id="ais-hit--picture-${hit.objectID}"
+                data-algolia-index="${hit.index}"
+                data-algolia-position="${hit.productPosition}"
+                data-algolia-queryid="${hit.queryID}"
+                data-algolia-objectid="${hit.objectID}"
+                href="${algolia.helpers.instantsearchLink(hit)}"
+                onclick="void(0)"
+                title="${algolia.helpers.fullTitle(hit.title, hit._distinct, hit.variant_title)}"
+              >
+                ${components.Highlight({ attribute: 'title', hit })}
+              </a>
+            </p>
+              
+            <p class="ais-hit--price product-card__price">
+              ${containerPrice}
+            </p>
+
+            ${colorOptions && colorOptions.values.length > 1 && html`<fieldset class="swatches flex flex-wrap justify-center space-x-1 z-20 relative pt-1">
+              ${colorOptions.values.map((value, index) => {
+                const color_handle = value.trim().toLowerCase().replace(' ', '-');
+                const swatch_color = swatches.find(swatch => swatch.name.trim().toLowerCase() === value.trim().toLowerCase());
+
+                const swatch_color_styles = (swatch_color && swatch_color.type === 'color')
+                  ? `background-color: ${swatch_color.value};`
+                  : `background-color: ${color_handle};`;
+
+                const selectedVariant = productData.variants.find(variant => variant.selectedOptions.some(option => ['color', 'colors', 'colour'].includes(option.name.toLowerCase()) && option.value === value));
+                
+                if(!selectedVariant) return;
+                return html`<style>
+                  [data-swatch-id="${color_handle}-${productData.id}"] .swatch-item__color {
+                    ${swatch_color_styles}
+                  }
+                </style>
+
+                <input type="radio" ${index === 0 ? html`checked="checked"` : ''}
+                  id="${color_handle}-${productData.id}-${hit.queryID}"
+                  name="swatch-${productData.id}-${hit.queryID}"
+                  value="${value}"
+                  class="swatch-item sr-only" />
+
+                <label for="${color_handle}-${productData.id}-${hit.queryID}"
+                  title="${value}"
+                  data-value="${value}"
+                  data-target-url="ais-hit-${hit.objectID}"
+                  data-target-color="color_${hit.objectID}"
+                  data-product-url="${algolia.helpers.instantsearchLink(hit)}"
+                  data-target-image="ais-hit--picture-${hit.objectID}"
+                  data-variant-id="${selectedVariant.id }"
+                  data-variant-price="${selectedVariant.price }"
+                  data-variant-compare-price="${selectedVariant.compareAtPrice }"
+                  data-variant-image="${selectedVariant.image }"
+                  data-swatch-id="${color_handle}-${productData.id}"
+                  class="swatch-item__label block p-0 w-6 h-6 rounded-full cursor-pointer border border-solid border-primary-background">
+                  <div class="swatch-item__color bg-primary-text-10 border-2 border-primary-background h-full w-full rounded-full" tabindex="-1">
+                    <span class="swatch-item__value sr-only">${value}</span>
+                    ${(swatch_color && swatch_color.type === 'image') && html`<img loading="lazy" src="${swatch_color.value}" class="object-contain w-full h-full rounded-full" />`}
+                  </div>
+                </label>`
+              })}
+            </fieldset>`}
+          </div>
+          
+          <div class="yotpo bottomLine flex justify-center" data-product-id="${productData.id}"></div>
+        </div>
+      </div>`;
+    };
+  })(window.algoliaShopify,window.swaches);
+</script>

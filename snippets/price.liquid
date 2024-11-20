@@ -1,0 +1,97 @@
+{% comment %}
+    Renders a list of product's price (regular, sale)
+
+    Accepts:
+    - product: {Object} Product Liquid object (optional)
+    - use_variant: {Boolean} Renders selected or first variant price instead of overall product pricing (optional)
+    - show_savings: {Boolean} Renders percentage off savings between the compare at price and price (optional)
+    - class: {String} Adds a price class to the price element (optional)
+
+    Usage:
+    {% render 'price', product: product %}
+{% endcomment %}
+
+{%- liquid
+  if use_variant
+    assign target = product.selected_or_first_available_variant
+  else
+    assign target = product
+  endif
+
+  assign compare_at_price = target.compare_at_price
+  assign price = target.price | default: 1999
+  assign available = target.available | default: false
+  assign money_price = price | money
+
+  assign savings_percentage = compare_at_price | minus: price | times: 100 | divided_by: compare_at_price
+  assign savings_amount = compare_at_price | minus: price | money
+
+  if target == product and product.price_varies
+    assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+  endif
+
+  capture price_class_full
+    echo 'price'
+    if class
+      echo class
+    endif
+    if available == false
+      echo ' price--sold-out'
+    endif
+    if compare_at_price > price
+      echo ' price--on-sale'
+    endif
+    if product.price_varies == false and product.compare_at_price_varies 
+      echo ' price--no-compare'
+    endif
+  endcapture
+-%}
+
+<div class="{{ price_class_full }}">
+  <div class="price__regular">
+    <span class="price-item price-item--regular">
+      {{ money_price }}
+    </span>
+  </div>
+  <div class="price__sale">
+    <span class="price-item price-item--sale">
+      {{ money_price }}
+    </span>
+    <s class="price-item price-item--compare">
+      {{ compare_at_price | money }}
+    </s>
+  </div>
+  <div style="display: flex;">
+  {%- if show_savings and compare_at_price > price -%}
+    <div class="price__savings">
+      <span class="savings" data-savings>
+        {%- if product.metafields.custom.text_savings != blank -%}
+          <span class="savings__percentage">{{ savings_percentage }}%</span>
+          <span class="savings__label"> {{ product.metafields.custom.text_savings }} </span>   
+        {%- else -%}
+          <span class="savings__label">{{ 'products.product.price.savings' | t }}</span>   
+          <span class="savings__percentage">{{ savings_percentage }}%</span>
+        {%- endif -%}
+        <span class="savings__amount">({{ savings_amount }})</span>
+      </span>
+    </div>
+  {%- endif -%}
+  {%- if text_offert != blank and show_text_offert -%}
+    <span class="text-limited" style="padding-left: 10px;display: flex;justify-content: center;align-content: center;line-height: 1.2;"> {{ text_offert }} </span>
+  {%- endif -%}
+</div>
+  <div class="price__unit{% if product.selected_or_first_available_variant.unit_price_measurement == nil %} hidden{% endif %}">
+    <span class="sr-only">{{ 'products.product.price.unit_price' | t }}</span>
+    <span data-unit-price>
+      <span>{{- product.selected_or_first_available_variant.unit_price | money -}}</span>
+      <span aria-hidden="true">/</span>
+      <span class="sr-only">&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
+      <span>
+        {%- if product.selected_or_first_available_variant.unit_price_measurement.reference_value != 1 -%}
+          {{- product.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
+        {%- endif -%}
+        {{ product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}
+      </span>
+    </span>
+  </div>
+</div>

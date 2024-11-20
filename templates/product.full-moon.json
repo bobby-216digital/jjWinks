@@ -1,0 +1,355 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "zp-product-header-content": {
+      "type": "product-header-content-zipifypages",
+      "settings": {
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {
+        "show_breadcrumbs": "all",
+        "show_social_icons": true
+      }
+    },
+    "product": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "ea50b154-a556-4015-901a-84ce73c2dfbe": {
+          "type": "shopify://apps/yotpo-product-reviews-ugc/blocks/star-rating/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_savings": true,
+            "text_price": "OFF TODAY",
+            "text_offert": "Limited Stock Left - Selling Fast"
+          }
+        },
+        "variants": {
+          "type": "variants",
+          "settings": {
+            "variants_style": "buttons",
+            "disable_soldout": false,
+            "border": "top",
+            "enable_swatches": true,
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity": {
+          "type": "quantity",
+          "settings": {
+            "border": "none"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "add_to_cart_text": "",
+            "sold_out_text": "",
+            "border": "none"
+          }
+        },
+        "98483d16-a4d9-4f68-851c-4dde92855ed3": {
+          "type": "shopify://apps/back-in-stock-customer-alerts/blocks/app-block/bfa6a8c4-24e2-411a-9396-e35031b33f34",
+          "disabled": true,
+          "settings": {
+            "caption": "Email me when available",
+            "font_size": 16,
+            "color": "#ffffff",
+            "background_color": "#91ac70",
+            "margin_top": 10,
+            "margin_bottom": 10,
+            "classes": "button button--full-width",
+            "style": "text-decoration:none"
+          }
+        },
+        "72138a49-829e-465d-bd81-8fbccc0e23d4": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<span class=\"drophint-link\"></span>"
+          }
+        },
+        "fc430309-5fb2-4eaf-9669-480f7861daa8": {
+          "type": "row-icon-list",
+          "settings": {
+            "icon1": "shopify://shop_images/71c1633f.png",
+            "icon-title1": "",
+            "icon_text1": "Made sustainably\nin Los Angeles",
+            "icon2": "shopify://shop_images/d973bdab.png",
+            "icon-title2": "",
+            "icon_text2": "Women-owned &amp;\nfounded",
+            "icon3": "shopify://shop_images/f07edd3c.png",
+            "icon-title3": "",
+            "icon_text3": "Carbon neutral\nbusinesses",
+            "icon4": "shopify://shop_images/c8ec5901.png",
+            "icon-title4": "",
+            "icon_text4": "Easy Returns"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "show_below": true,
+            "enable_tab": true,
+            "title": "Description",
+            "default_open": true,
+            "tabs_auto_headings": "disabled"
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "settings": {
+            "title": "FAQ",
+            "richtext": "",
+            "page": "faq",
+            "default_open": false,
+            "show_below": true
+          }
+        },
+        "2d5ddd46-8386-4779-b7ba-42b9d74b1ba5": {
+          "type": "tab",
+          "settings": {
+            "title": "Store Policy",
+            "richtext": "",
+            "page": "store-policy-terms-of-purchase",
+            "default_open": false,
+            "show_below": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "ea50b154-a556-4015-901a-84ce73c2dfbe",
+        "price",
+        "variants",
+        "quantity",
+        "buy_buttons",
+        "98483d16-a4d9-4f68-851c-4dde92855ed3",
+        "72138a49-829e-465d-bd81-8fbccc0e23d4",
+        "fc430309-5fb2-4eaf-9669-480f7861daa8",
+        "description",
+        "tab",
+        "2d5ddd46-8386-4779-b7ba-42b9d74b1ba5"
+      ],
+      "settings": {
+        "product_box_padding": false,
+        "image_ratio": "adapt",
+        "thumbnails_placement": "bottom",
+        "product_featured_lightbox_enable": false,
+        "product_featured_zoom_enable": true,
+        "enable_video_looping": true
+      }
+    },
+    "bfa070ee-4c9e-4251-93db-2791cc7ba46a": {
+      "type": "logo-list",
+      "blocks": {
+        "template--14885859426346__bfa070ee-4c9e-4251-93db-2791cc7ba46a-1687803369c7bed0ea-0": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/buzzfeed-logo.png",
+            "link": "",
+            "title": "<p><em>\"Ok no lie - this material is a godsend. It is literally the softest material I've ever felt. The true test was the \"no-bra\" insert and, for me, it passed the test.\"</em></p>"
+          }
+        },
+        "template--14885859426346__bfa070ee-4c9e-4251-93db-2791cc7ba46a-1687803369c7bed0ea-1": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/forbes-logo.png",
+            "link": "",
+            "title": "<p><em>\"Their so-called 'light hug' built into tops keeps even D-cups in check. Pair it with their stylish pants - all are made in the USA - and a long sweater, and no one will be any the wiser.\"</em></p>"
+          }
+        },
+        "template--14885859426346__bfa070ee-4c9e-4251-93db-2791cc7ba46a-1687803369c7bed0ea-2": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/travelgirl-logo.png",
+            "link": "",
+            "title": "<p><em>\"Pieces come in understated hues with timeless elegance - no cutesy or immature designs.\"</em></p>"
+          }
+        },
+        "template--14885859426346__bfa070ee-4c9e-4251-93db-2791cc7ba46a-1687803369c7bed0ea-3": {
+          "type": "logo_image",
+          "disabled": true,
+          "settings": {
+            "link": "",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14885859426346__bfa070ee-4c9e-4251-93db-2791cc7ba46a-1687803369c7bed0ea-0",
+        "template--14885859426346__bfa070ee-4c9e-4251-93db-2791cc7ba46a-1687803369c7bed0ea-1",
+        "template--14885859426346__bfa070ee-4c9e-4251-93db-2791cc7ba46a-1687803369c7bed0ea-2",
+        "template--14885859426346__bfa070ee-4c9e-4251-93db-2791cc7ba46a-1687803369c7bed0ea-3"
+      ],
+      "settings": {
+        "title": "",
+        "background_color": "#ffffff",
+        "title_color": "#000000",
+        "container_width_md": 250,
+        "container_width": 250,
+        "logo_width": 45
+      }
+    },
+    "1651556401485742ca": {
+      "type": "apps",
+      "blocks": {
+        "d146f83b-77e4-49f4-bf07-6976f2c244ed": {
+          "type": "shopify://apps/yotpo-product-reviews-ugc/blocks/reviews/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "d146f83b-77e4-49f4-bf07-6976f2c244ed"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "product-description": {
+      "type": "product-description",
+      "disabled": true,
+      "settings": {
+        "show_title": false,
+        "alignment": "left"
+      }
+    },
+    "698bfd0f-25df-435b-812a-e4f22e23fdba": {
+      "type": "logo-list",
+      "blocks": {
+        "template--14885859426346__698bfd0f-25df-435b-812a-e4f22e23fdba-16878272725fb49bc9-0": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/1_622f2337-ee26-4c0b-a471-33b1f0ee60aa.png",
+            "link": "",
+            "title": "<p>JJwinks is a carbon-neutral business and practices sustainability from start to finish.</p>"
+          }
+        },
+        "template--14885859426346__698bfd0f-25df-435b-812a-e4f22e23fdba-16878272725fb49bc9-1": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/2_08781ffd-1ae6-4c96-8d4b-cf87fef7078b.png",
+            "link": "",
+            "title": "<p>Locally sewn and created in downtown Los Angeles with no overseas production.</p>"
+          }
+        },
+        "template--14885859426346__698bfd0f-25df-435b-812a-e4f22e23fdba-16878272725fb49bc9-2": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/3.png",
+            "link": "",
+            "title": "<p>Invented and founded by two women...for all women.</p>"
+          }
+        },
+        "template--14885859426346__698bfd0f-25df-435b-812a-e4f22e23fdba-16878272725fb49bc9-3": {
+          "type": "logo_image",
+          "disabled": true,
+          "settings": {
+            "link": "",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14885859426346__698bfd0f-25df-435b-812a-e4f22e23fdba-16878272725fb49bc9-0",
+        "template--14885859426346__698bfd0f-25df-435b-812a-e4f22e23fdba-16878272725fb49bc9-1",
+        "template--14885859426346__698bfd0f-25df-435b-812a-e4f22e23fdba-16878272725fb49bc9-2",
+        "template--14885859426346__698bfd0f-25df-435b-812a-e4f22e23fdba-16878272725fb49bc9-3"
+      ],
+      "settings": {
+        "title": "",
+        "background_color": "#829465",
+        "title_color": "#ffffff",
+        "container_width_md": 220,
+        "container_width": 220,
+        "logo_width": 50
+      }
+    },
+    "0e090567-46b8-4149-8ffe-fc5c0287c113": {
+      "type": "image-with-text",
+      "settings": {
+        "full_width": false,
+        "section_padding": true,
+        "image": "shopify://shop_images/Lisa-kelly-lifestyle1.jpg",
+        "layout": "left",
+        "image_width": 50,
+        "text_align": "left",
+        "title": "Women-Owned & Founded",
+        "text": "<p>The story of two best friends, who  were tired of choosing between unflattering loungewear or too-revealing sleepwear, and decided women deserve to feel sexy and comfortable. JJs were created for women on the go, busy moms, professionals and every woman in between.</p>",
+        "button_label": "READ OUR STORY",
+        "button_link": "shopify://pages/our-story"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "title": "You may also like",
+        "product_count_range": 4,
+        "product_columns": 4,
+        "product_mobile_columns": "2",
+        "product_image_ratio": "adapt",
+        "product_image_crop": false,
+        "product_image_hover": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "product_badge_placement": "bottom-right",
+        "product_swatches": true,
+        "collection_swatches_shape": "circle"
+      }
+    },
+    "165169819396de3478": {
+      "type": "custom-liquid",
+      "settings": {
+        "full_width": false,
+        "custom_liquid": "<script type=\"text/javascript\">\nvar _learnq = _learnq || [];\n\t if(document.getElementById(\"AddToCart\")){document.getElementById(\"AddToCart\").addEventListener('click',function (){\n \t\t_learnq.push(['track', 'Added to Cart', item]);\n\t})} ;</script>"
+      }
+    },
+    "zp-product-footer-content": {
+      "type": "product-footer-content-zipifypages",
+      "settings": {
+      }
+    },
+    "1bdd8062-d2fd-4d54-bce6-4e39991a9430": {
+      "type": "custom-liquid",
+      "settings": {
+        "full_width": true,
+        "custom_liquid": "<script>\nwindow.addEventListener('load', function() {\nvar _learnq = window._learnq || [];\nfunction addedToCart() {\n  fetch(`${window.location.origin}/cart.js`)\n  .then(res => res.clone().json().then(data => {\n    var cart = {\n      total_price: data.total_price/100,\n      $value: data.total_price/100,\n      total_discount: data.total_discount,\n      original_total_price: data.original_total_price/100,\n      items: data.items\n    }\n    if (item !== 'undefined') {\n      cart = Object.assign(cart, item)\n    }\n    if (klAjax) {\n        _learnq.push(['track', 'Added to Cart', cart]);\n        klAjax = false;\n      }\n  }))\n};\n(function (ns, fetch) {\n  ns.fetch = function() {\n    const response = fetch.apply(this, arguments);\n    response.then(res => {\n      if (`${window.location.origin}/cart/add.js`\n      \t.includes(res.url)) {\n        \taddedToCart()\n      }\n    });\n    return response\n  }\n}(window, window.fetch));\nvar klAjax = true;\nvar atcButtons = document.querySelectorAll(\"form[action*='/cart/add'] button[type='submit']\");\nfor (var i = 0; i < atcButtons.length; i++) {\n    atcButtons[i].addEventListener(\"click\", function() {\n      if (klAjax) {\n        _learnq.push(['track', 'Added to Cart', item]);\n        klAjax = false;\n      }\n    })\n}\n});\n</script>"
+      }
+    }
+  },
+  "order": [
+    "zp-product-header-content",
+    "breadcrumbs",
+    "product",
+    "bfa070ee-4c9e-4251-93db-2791cc7ba46a",
+    "1651556401485742ca",
+    "product-description",
+    "698bfd0f-25df-435b-812a-e4f22e23fdba",
+    "0e090567-46b8-4149-8ffe-fc5c0287c113",
+    "product-recommendations",
+    "165169819396de3478",
+    "zp-product-footer-content",
+    "1bdd8062-d2fd-4d54-bce6-4e39991a9430"
+  ]
+}

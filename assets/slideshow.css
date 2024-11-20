@@ -1,0 +1,39 @@
+slideshow-component .splide:not(.is-active) {
+    visibility: visible;
+}
+    slideshow-component .splide:not(.is-active) .splide__slide {
+    display: none;
+}
+    slideshow-component .splide:not(.is-active) .splide__slide:first-of-type {
+    display: block;
+    width: 100%;
+}
+  slideshow-component .splide__pagination {
+    bottom: -1.5rem;
+  }
+  slideshow-component .splide__pagination__page {
+    background-color: var(--primary-text-color-30);
+}
+  slideshow-component .splide__pagination__page.is-active {
+    --tw-scale-x: 1.1;
+    --tw-scale-y: 1.1;
+    transform: var(--tw-transform);
+    background-color: var(--primary-accent-color);
+}
+  slideshow-component .button--outline, slideshow-component .prose .button--outline {
+    border-color: var(--section-accent-color);
+    color: var(--section-accent-color);
+}
+  slideshow-component .button--outline:hover, slideshow-component .button--outline:focus, slideshow-component .prose .button--outline:hover, slideshow-component .prose .button--outline:focus {
+    border-color: var(--section-text-color);
+    color: var(--section-text-color);
+}
+  slideshow-component .button--solid, slideshow-component .prose .button--solid {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+  slideshow-component .button--solid:hover, slideshow-component .button--solid:focus, slideshow-component .prose .button--solid:hover, slideshow-component .prose .button--solid:focus {
+    border-color: var(--section-accent-text-color);
+    background-color: var(--section-accent-text-color);
+    color: var(--section-accent-color);
+}

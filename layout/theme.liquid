@@ -1,0 +1,244 @@
+{% include 'shogun-content-handler' %}
+<!doctype html>
+
+<html
+  class="no-js"
+  {% if settings.typography_rtl %}
+    dir="rtl"
+  {% else %}
+    dir="ltr"
+  {% endif %}
+  lang="{{ request.locale.iso_code }}"
+>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.general_theme_color }}">
+    <link rel="canonical" href="{{ canonical_url }}" rel="preload">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin rel="preload">
+
+    <link rel="preconnect dns-prefetch" href="https://api.config-security.com/" crossorigin>
+    <link rel="preconnect dns-prefetch" href="https://conf.config-security.com/" crossorigin>
+    <link rel="preconnect dns-prefetch" href="https://whale.camera/" crossorigin>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=REM:wght@300;500&display=swap" rel="stylesheet">
+
+    {% include 'kiwiSizing' %}
+    {%- render 'yotpo-init-script' -%}
+
+    {%- liquid
+      echo 'global.js' | asset_url | preload_tag: as: 'script'
+      case request.page_type
+        when 'product'
+          echo 'package-splide.js' | asset_url | preload_tag: as: 'script'
+          echo 'main-product.js' | asset_url | preload_tag: as: 'script'
+      endcase
+    -%}
+
+    {%- if settings.favicon != blank -%}
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="{{ settings.favicon | image_url: width: 180, height: 180 }}"
+        rel="preload"
+      >
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" rel="preload">
+    {%- endif -%}
+
+    {%- unless settings.typography_body_font.system?
+      and settings.typography_headings_font.system?
+      and settings.typography_navigation_font.system?
+    -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+
+    <title>{{ page_title }}</title>
+
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    {%- render 'meta-tags' -%}
+    {%- render 'js-variables' -%}
+
+    <script src="{{ 'tabbable.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'focus-trap.min.js' | asset_url }}" defer="defer"></script>
+
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    {%- case request.page_type -%}
+      {%- when 'product' -%}
+        <script src="{{ 'package-splide.js' | asset_url }}" defer="defer"></script>
+        <script src="{{ 'main-product.js' | asset_url }}" defer="defer"></script>
+    {%- endcase -%}
+
+    {%- render 'header-scripts.zipifypages', apprxhbl: zp_apprxhbl, renderctx: 'thm' -%}
+    {{ content_for_header }}
+    {%- render 'bold-common' -%}
+    {%- render 'css-variables' -%}
+    {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
+
+    {%- unless settings.typography_body_font.system? -%}
+      <link rel="preload" as="font" href="{{ settings.typography_body_font | font_url }}" type="font/woff2" crossorigin>
+    {%- endunless -%}
+    {%- unless settings.typography_headings_font.system? -%}
+      <link
+        rel="preload"
+        as="font"
+        href="{{ settings.typography_headings_font | font_url }}"
+        type="font/woff2"
+        crossorigin
+      >
+    {%- endunless -%}
+    {%- unless settings.typography_navigation_font.system? -%}
+      <link
+        rel="preload"
+        as="font"
+        href="{{ settings.typography_navigation_font | font_url }}"
+        type="font/woff2"
+        crossorigin
+      >
+    {%- endunless -%}
+
+    {% render 'gsf-conversion-pixels' %}
+    {% render 'shogun-head' %}
+
+    {% include 'wiser' %}
+    {% include 'wiser_popup' %}
+    <script src="{{ 'timesact.js' | asset_url }}"></script>
+    <!-- Algolia head -->
+    {% render 'algolia_config' %}
+
+    <script type="text/template" id="template_algolia_money_format">
+      {% include 'algolia_money_format' %}
+    </script>
+    <script type="text/template" id="template_algolia_current_collection_id">
+      {% include 'algolia_current_collection_id' %}
+    </script>
+    <script type="text/template" id="template_algolia_autocomplete.css">
+      {% include 'algolia_autocomplete.css' %}
+    </script>
+    <script type="text/template" id="template_algolia_instant_search.css">
+      {% include 'algolia_instant_search.css' %}
+    </script>
+    {{ 'algolia_dependency_font-awesome-4-4-0.min.css' | asset_url | stylesheet_tag }}
+    <script>
+      window.swaches = {{ shop.metafields.global.swaches.value.swaches | json }};
+    </script>
+    <script src="{{ 'algolia_externals.js' | asset_url }}" defer></script>
+    {{ 'algolia_init.js' | asset_url | script_tag }}
+    <script src="{{ 'algolia_analytics.js' | asset_url }}" defer></script>
+    <script src="{{ 'algolia_translations.js' | asset_url }}" defer></script>
+    <script src="{{ 'algolia_helpers.js' | asset_url }}" defer></script>
+    <script src="{{ 'algolia_autocomplete_suggestions_plugin.js' | asset_url }}" defer></script>
+    <script src="{{ 'algolia_autocomplete_product_plugin.js' | asset_url }}" defer></script>
+    <script src="{{ 'algolia_autocomplete_collections_plugin.js' | asset_url }}" defer></script>
+    <script src="{{ 'algolia_autocomplete_articles_plugin.js' | asset_url }}" defer></script>
+    <script src="{{ 'algolia_autocomplete_pages_plugin.js' | asset_url }}" defer></script>
+    <script src="{{ 'algolia_autocomplete.js' | asset_url }}" defer></script>
+    <script src="{{ 'algolia_facets.js' | asset_url }}" defer></script>
+    <script src="{{ 'algolia_sort_orders.js' | asset_url }}" defer></script>
+    <script src="{{ 'algolia_instant_search-custom.js' | asset_url }}" defer></script>
+    {% include 'algolia_autocomplete' %}
+    {% include 'algolia_autocomplete_main_products_only' %}
+    {% include 'algolia_autocomplete_page' %}
+    {% include 'algolia_autocomplete_collection' %}
+    {% include 'algolia_autocomplete_article' %}
+    {% include 'algolia_autocomplete_product' %}
+    {% include 'algolia_autocomplete_suggestion' %}
+    {% include 'algolia_autocomplete_header' %}
+    {% include 'algolia_autocomplete_footer' %}
+    {% include 'algolia_autocomplete_no_results' %}
+    {% include 'algolia_instant_search' %}
+    {% include 'algolia_instant_search_stats' %}
+    {% include 'algolia_instant_search_facet_show_more' %}
+    {% include 'algolia_instant_search_facet_item' %}
+    {% include 'algolia_instant_search_product' %}
+    {% include 'algolia_instant_search_no_result' %}
+    <!-- /Algolia head -->
+
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+
+    <script type="text/javascript">
+      (function e() {
+        var e = document.createElement('script');
+        (e.type = 'text/javascript'),
+          (e.async = true),
+          (e.src = '//staticw2.yotpo.com/cQaIDE3anORQHtziZ7dV84M4uBAG5iX4liY1t9ci/widget.js');
+        var t = document.getElementsByTagName('script')[0];
+        t.parentNode.insertBefore(e, t);
+      })();
+    </script>
+  </head>
+
+  <body
+    id="{{ page_title | handle }}"
+    class="font-body bg-section-background "
+    data-page-type="{{ request.page_type }}"
+  >
+    <a class="skip-to-content-link button sr-only" href="#MainContent">
+      {{ 'accessibility.skip_to_text' | t }}
+    </a>
+    {%- section 'promos' -%}
+    {%- section 'header-top' -%}
+    {%- section 'header' -%}
+    {% render 'modal-recently-views' %}
+
+    <main id="MainContent" class="content-for-layout bg-primary-background" role="main">
+      {{ content_for_layout }}
+    </main>
+
+    {% section 'footer' %}
+
+    <ul hidden>
+      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
+    </ul>
+    <!-- District v4.1.0 -->
+    {% include 'swymSnippet' %}
+    {%- render 'page-footer.zipifypages', renderctx: 'thm', ocuapp: oneclickupsellapp -%}
+
+    {%- render 'loop-init-script' -%}
+
+    <!-- Gorgias Chat Widget Start -->
+    {% render 'gorgias-chat-widget' %}
+    <!-- Gorgias Chat Widget End -->
+
+    {% if settings.cart_show_progress_bar %}
+      {% assign progress_bar_max = settings.cart_progress_bar_max | times: 100 %}
+      {% assign cart_progress_bar_gift_product = all_products[settings.cart_progress_bar_gift_product] %}
+      <input type="hidden" class="cart_progress_bar_max" value="{{ progress_bar_max }}">
+      <input type="hidden" class="cart_progress_bar_gift_product_id" value="{{ cart_progress_bar_gift_product.id }}">
+      <input
+        type="hidden"
+        class="cart_progress_bar_gift_variant_id"
+        value="{{ cart_progress_bar_gift_product.selected_or_first_available_variant.id }}"
+      >
+    {% endif %}
+    <!-- PickyStory snippet "main_widget_script", do not modify. Safe to remove after the app is uninstalled -->
+    {% if content_for_header contains 'pickystory' %}
+      <script defer src="https://cdn.pickystory.com/widget/dist/latest/pickystory-widget.min.js"></script>
+    {% endif %}
+    <!-- PickyStory end snippet "main_widget_script" -->
+    <!-- PickyStory code, do not modify. Safe to remove after the app is uninstalled -->
+    {% if content_for_header contains 'pickystory' %}
+      {% render 'pickystory-combos-prerender' %}
+    {% endif %}
+    <!-- PickyStory code end -->
+  </body>
+
+  <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/f1orBhbXQ6wixqnZuQ2HBQ" async></script>
+
+  <style>
+    @media only screen and (max-width: 1050px) {
+      .cc-tbo-close,
+      .klaviyo-close-form,
+      .bold-modal__btn-close {
+        transform: scale(1.2);
+        padding: 0.3em;
+      }
+    }
+  </style>
+</html>

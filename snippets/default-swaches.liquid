@@ -1,0 +1,77 @@
+<fieldset class="swatches product-form__input product-form__input--radio product-form__input--swatch">
+  <legend>
+    <span class="product-form__option-name">{{ option.name }}</span>
+    <span class="product-form__swatch-name">{{ option.selected_value }}</span>
+  </legend>
+  {%- for value in option.values -%}
+    {%- liquid
+      assign swatch_color = value | escape
+      assign swatch_color_metafield = product.metafields.swatches[swatch_color]
+      if swatch_color_metafield == null
+        assign swatch_color_metafield = shop.metafields.swatches[swatch_color]
+      endif
+
+      if swatch_color_metafield
+        capture swatch_color_metafield_styles
+          if swatch_color_metafield.type == 'color'
+            echo 'background-color: '
+            echo swatch_color_metafield.value
+          elsif swatch_color_metafield.type == 'file_reference'
+            echo 'background-image: url("'
+            echo swatch_color_metafield.value | remove_first: 'files/' | file_img_url
+            echo '");'
+          endif
+        endcapture
+      else
+        assign swatch_color_css = swatch_color | handle | replace: '-', ''
+        capture swatch_color_metafield_styles
+          echo 'background-color: '
+          echo swatch_color_css
+          echo ';'
+        endcapture
+      endif
+    -%}
+    <style>
+      [data-swatch-id="{{ value | handle }}-{{ product.id }}"] .swatch-item__color {
+        {{ swatch_color_metafield_styles }}
+      }
+    </style>
+
+    <input
+      class="swatch-item product-form__radio-swatch"
+      type="radio"
+      id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+      name="{{ option.name }}"
+      value="{{ value | escape }}"
+      form="{{ product_form_id }}"
+      {% if option.selected_value == value %}
+        checked
+      {% endif %}
+    >
+    <label
+      class="swatch-item__label product-form__radio-swatch-label"
+      for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+      data-swatch-id="{{ value | handle }}-{{ product.id }}"
+    >
+      <div
+        class="swatch-item__color {% if block.settings.swatch_shape == 'circle' %}rounded-full{% endif %}"
+        tabindex="-1"
+      >
+        <span class="swatch-item__value sr-only">{{ value | escape }}</span>
+      </div>
+      <div
+        aria-hidden="true"
+        class="product-form__radio-label--cross-out hidden absolute -inset-px pointer-events-none"
+      >
+        <svg
+          class="absolute inset-0 w-full h-full text-primary-text-70 opacity-50 stroke-2"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          stroke="currentColor"
+        >
+          <line x1="0" y1="100" x2="100" y2="0" vector-effect="non-scaling-stroke"></line>
+        </svg>
+      </div>
+    </label>
+  {%- endfor -%}
+</fieldset>

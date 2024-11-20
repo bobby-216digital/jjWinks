@@ -1,0 +1,618 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "image_tAjK7F": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/36.png",
+            "mobile_image": "shopify://shop_images/Homepage_Banner_Mobile_BFCM1.png",
+            "link": "shopify://collections/all-products",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "outline",
+            "vertical_alignment": "align-center",
+            "horizontal_alignment": "justify-center",
+            "color_text": "#000000",
+            "color_accent": "#000000",
+            "color_overlay": "#ffffff",
+            "color_overlay_alpha_range": 0
+          }
+        },
+        "image_YVW7rm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Homepage_Banner_Desktop_bfcm2.png",
+            "mobile_image": "shopify://shop_images/Homepage_Banner_Mobilebfcm2.png",
+            "link": "shopify://collections/all-products",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "outline",
+            "vertical_alignment": "align-center",
+            "horizontal_alignment": "justify-center",
+            "color_text": "#000000",
+            "color_accent": "#000000",
+            "color_overlay": "#ffffff",
+            "color_overlay_alpha_range": 0
+          }
+        },
+        "image_j6GYcw": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Homepage_Banner_Desktop_10.png",
+            "mobile_image": "shopify://shop_images/Homepage_Banner_Mobile_13.png",
+            "link": "shopify://collections/whats-new",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "outline",
+            "vertical_alignment": "align-center",
+            "horizontal_alignment": "justify-center",
+            "color_text": "#000000",
+            "color_accent": "#000000",
+            "color_overlay": "#ffffff",
+            "color_overlay_alpha_range": 0
+          }
+        },
+        "image_Ar8wfK": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Homepage_Banner_Desktop_17.png",
+            "mobile_image": "shopify://shop_images/Homepage_Banner_Mobile_16.png",
+            "link": "shopify://collections/all-products",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "outline",
+            "vertical_alignment": "align-center",
+            "horizontal_alignment": "justify-center",
+            "color_text": "#000000",
+            "color_accent": "#000000",
+            "color_overlay": "#ffffff",
+            "color_overlay_alpha_range": 0
+          }
+        },
+        "image_RidGqp": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Homepage_Banner_Desktop_6.png",
+            "mobile_image": "shopify://shop_images/Homepage_Banner_Mobile_7.png",
+            "link": "shopify://products/wt130-cosmo-top",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "outline",
+            "vertical_alignment": "align-center",
+            "horizontal_alignment": "justify-center",
+            "color_text": "#000000",
+            "color_accent": "#000000",
+            "color_overlay": "#ffffff",
+            "color_overlay_alpha_range": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_tAjK7F",
+        "image_YVW7rm",
+        "image_j6GYcw",
+        "image_Ar8wfK",
+        "image_RidGqp"
+      ],
+      "settings": {
+        "full_width": true,
+        "autoplay": true,
+        "autoplay_speed_range": 5,
+        "show_dots": true,
+        "show_arrows": true
+      }
+    },
+    "1651266311719a2f2a": {
+      "type": "logo-list",
+      "blocks": {
+        "1651266311fbf5c12d-0": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/map-pin-icon-white.png",
+            "link": "",
+            "title": "<p>Made in Los Angeles</p>"
+          }
+        },
+        "1651266311fbf5c12d-1": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/handshake-icon-white.png",
+            "link": "",
+            "title": "<p>Women-Owned</p>"
+          }
+        },
+        "1651266311fbf5c12d-2": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/world-icon-white.png",
+            "link": "",
+            "title": "<p>Carbon Neutral</p>"
+          }
+        },
+        "1651266311fbf5c12d-3": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/box-icon-white.png",
+            "link": "",
+            "title": "<p>100% Free & Easy Returns</p>"
+          }
+        }
+      },
+      "block_order": [
+        "1651266311fbf5c12d-0",
+        "1651266311fbf5c12d-1",
+        "1651266311fbf5c12d-2",
+        "1651266311fbf5c12d-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "background_color": "#839565",
+        "title_color": "#ffffff",
+        "container_width_md": 160,
+        "container_width": 120,
+        "logo_width": 60
+      }
+    },
+    "df5adbcc-1266-4bae-9ba5-529c5e9d603c": {
+      "type": "rich-text",
+      "disabled": true,
+      "settings": {
+        "background_color": "#f4f4f4",
+        "title": "★★★★★ 5,000+ 5-STAR REVIEWS",
+        "text": "<p>\"Buttery soft, high quality apparel with a purpose. Sustainably produced in Los Angeles, CA.\"</p>",
+        "alignment": "center"
+      }
+    },
+    "image_banner_WVC8gp": {
+      "type": "image-banner",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/Homepage_Banner_JJwinks_Desktop_5.jpg",
+        "mobile_image": "shopify://shop_images/Homepage_Banner_JJwinks_Mobile_16.png",
+        "link_git": "shopify://collections/whats-new",
+        "alignment": "top",
+        "title": "",
+        "text": "",
+        "banner_size": "x-large",
+        "full_width": true,
+        "button_label_1": "",
+        "button_link_1": "",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style": "outline",
+        "color_overlay_text": "#ffffff",
+        "color_accent": "#ffffff",
+        "color_overlay": "#000000",
+        "color_overlay_alpha_range": 0
+      }
+    },
+    "4eba6ce9-8c71-47b1-926e-66a915528533": {
+      "type": "custom-content",
+      "blocks": {
+        "template--14863320449066__4eba6ce9-8c71-47b1-926e-66a915528533-16748425885788a77d-0": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "link": "",
+            "full_width": false
+          }
+        },
+        "template--14863320449066__4eba6ce9-8c71-47b1-926e-66a915528533-16748425885788a77d-1": {
+          "type": "richtext",
+          "settings": {
+            "title": "5,000+ 5-STAR REVIEWS",
+            "text": "<p>\"Buttery soft, high quality apparel with a purpose. Sustainably produced in Los Angeles, CA.\"</p>"
+          }
+        },
+        "template--14863320449066__4eba6ce9-8c71-47b1-926e-66a915528533-16748425885788a77d-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/the-light-hug-collection"
+          }
+        }
+      },
+      "block_order": [
+        "template--14863320449066__4eba6ce9-8c71-47b1-926e-66a915528533-16748425885788a77d-0",
+        "template--14863320449066__4eba6ce9-8c71-47b1-926e-66a915528533-16748425885788a77d-1",
+        "template--14863320449066__4eba6ce9-8c71-47b1-926e-66a915528533-16748425885788a77d-2"
+      ],
+      "settings": {
+        "title": "★ ★ ★ ★ ★",
+        "alignment": "center"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "JJ Best Sellers",
+        "richtext": "<p>The JJs you can (and should) stay in all day</p>",
+        "content_placement": "top",
+        "button_label": "View More Best Sellers",
+        "button_link": "shopify://collections/best-selling-products",
+        "button_placement": "bottom",
+        "collection": "best-selling-products",
+        "product_count_range": 4,
+        "product_columns": 4,
+        "product_mobile_columns": "2",
+        "product_image_ratio": "adapt",
+        "product_image_crop": false,
+        "product_image_hover": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "product_badge_placement": "bottom-right",
+        "product_swatches": true,
+        "collection_swatches_shape": "circle"
+      }
+    },
+    "1651190281c43c3e5f": {
+      "type": "image-with-text",
+      "settings": {
+        "full_width": false,
+        "section_padding": true,
+        "image": "shopify://shop_images/Slumber-Party-Gif_Gif.gif",
+        "layout": "right",
+        "image_width": 50,
+        "text_align": "center",
+        "title": "Bra-like modesty....without the underwire & discomfort.",
+        "text": "<p>Tired of wearing a bra? Well, meet the Light Hug®.</p><p>Say goodbye to the panic of unexpected guests & the endless cycle of old sweatshirts. Our buttery soft tops are tagless, flattering, and inside each top is a Light Hug® giving breathable, gentle coverage for all boob shapes & sizes.</p>",
+        "button_label": "Shop Braless Bliss",
+        "button_link": "shopify://collections/the-light-hug-collection"
+      }
+    },
+    "16511907143cc12533": {
+      "type": "logo-list",
+      "blocks": {
+        "1651190714dcee7dc0-0": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/people-logo.webp",
+            "link": "",
+            "title": "<p></p>"
+          }
+        },
+        "1651190714dcee7dc0-1": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/instyle-logo.webp",
+            "link": "",
+            "title": "<p></p>"
+          }
+        },
+        "1651190714dcee7dc0-2": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/e-online-logo.webp",
+            "link": "",
+            "title": "<p></p>"
+          }
+        },
+        "1651190714dcee7dc0-3": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/vanity-fair-logo.png",
+            "link": "",
+            "title": "<p></p>"
+          }
+        },
+        "0131161d-50d2-4ed0-9d97-d68a1af5a485": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/vogue-logo.png",
+            "link": "",
+            "title": "<p></p>"
+          }
+        }
+      },
+      "block_order": [
+        "1651190714dcee7dc0-0",
+        "1651190714dcee7dc0-1",
+        "1651190714dcee7dc0-2",
+        "1651190714dcee7dc0-3",
+        "0131161d-50d2-4ed0-9d97-d68a1af5a485"
+      ],
+      "settings": {
+        "title": "Logo list",
+        "background_color": "#ffffff",
+        "title_color": "#ffffff",
+        "container_width_md": 160,
+        "container_width": 120,
+        "logo_width": 100
+      }
+    },
+    "83e63c6e-1dcb-431e-8521-54b467e48f4f": {
+      "type": "testimonials",
+      "settings": {
+        "section-title": "What They Say",
+        "padding-top": 16,
+        "padding-bottom": 16
+      }
+    },
+    "featured_grid": {
+      "type": "featured-grid",
+      "blocks": {
+        "image1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Serenitee-Deep-Teal-Lifestyle23.jpg",
+            "link": "shopify://collections/tops",
+            "title": "JJ Tops",
+            "richtext": ""
+          }
+        },
+        "image4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Light-Hug-Turtleneck-Navy-Lifestyle3.jpg",
+            "link": "shopify://collections/fleece",
+            "title": "Cozy Fleece",
+            "richtext": ""
+          }
+        },
+        "image3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Manhattan-Robe-Black-Lifestyle1.jpg",
+            "link": "shopify://collections/robes",
+            "title": "JJ Layers",
+            "richtext": ""
+          }
+        },
+        "image2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Slumber-Party-Happy-Hour-Black-Lifestyle5.jpg",
+            "link": "shopify://collections/bottoms",
+            "title": "JJ Bottoms",
+            "richtext": ""
+          }
+        }
+      },
+      "block_order": [
+        "image1",
+        "image4",
+        "image3",
+        "image2"
+      ],
+      "custom_css": [
+        ".object-cover {object-position: top; object-fit: contain;}"
+      ],
+      "settings": {
+        "title": "Shop Collections",
+        "full_width": false,
+        "section_padding": true,
+        "gutter": true,
+        "images_per_row_range": 2,
+        "images_per_row_mobile": "1",
+        "image_ratio": "landscape",
+        "text_placement": "below",
+        "color_overlay": "#4f4f4f",
+        "color_overlay_hover": "#000000",
+        "color_overlay_text": "#ffffff",
+        "color_overlay_alpha_range": 0,
+        "zoom": true
+      }
+    },
+    "165126722686d3ced1": {
+      "type": "logo-list",
+      "blocks": {
+        "1651267226935adfb6-0": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/buzzfeed-logo.png",
+            "link": "",
+            "title": "<p><em>\"Ok no lie - this material is a godsend. It is literally the softest material I've ever felt. The true test was the \"no-bra\" insert and, for me, it passed the test.\"</em></p>"
+          }
+        },
+        "1651267226935adfb6-1": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/forbes-logo.png",
+            "link": "",
+            "title": "<p><em>\"Their so-called 'light hug' built into tops keeps even D-cups in check. Pair it with their stylish pants - all are made in the USA - and a long sweater, and no one will be any the wiser.\"</em></p>"
+          }
+        },
+        "1651267226935adfb6-2": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/travelgirl-logo.png",
+            "link": "",
+            "title": "<p><em>\"Pieces come in understated hues with timeless elegance - no cutesy or immature designs.\"</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "1651267226935adfb6-0",
+        "1651267226935adfb6-1",
+        "1651267226935adfb6-2"
+      ],
+      "settings": {
+        "title": "",
+        "background_color": "#ffffff",
+        "title_color": "#000000",
+        "container_width_md": 230,
+        "container_width": 250,
+        "logo_width": 100
+      }
+    },
+    "16511900866169b29b": {
+      "type": "image-with-text",
+      "settings": {
+        "full_width": false,
+        "section_padding": true,
+        "image": "shopify://shop_images/L_K_4.jpg",
+        "layout": "left",
+        "image_width": 50,
+        "text_align": "center",
+        "title": "Because we know women.",
+        "text": "<p>The story of two best friends, who  were tired of choosing between unflattering loungewear or too-revealing sleepwear, and decided women deserve to feel sexy and comfortable. JJs were created for women on the go, busy moms, professionals and every woman in between.</p>",
+        "button_label": "Read Our Story",
+        "button_link": "shopify://pages/our-story"
+      }
+    },
+    "165118998001714998": {
+      "type": "rich-text",
+      "settings": {
+        "background_color": "#fdfbfa",
+        "title": "Loungewear that makes an impact",
+        "text": "<p>Every piece is designed in L.A. & made with Modal fabric: a plant-based biodegradable fiber with low environmental impact when harvested. To ensure we’re as sustainable as possible, we use recyclable packaging for each order. On top of it all, we make donations to environmental projects that offset our carbon emissions. See more on our “Environmental Efforts” page. So you can kick back, relax, and just breathe - because this is your most breathable loungewear yet.</p>",
+        "alignment": "center"
+      }
+    },
+    "image_banner_3ngiJR": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/970_x_250_px_Website_Banner_19.png",
+        "mobile_image": "shopify://shop_images/Homepage_Banner_Mobile_6.png",
+        "link_git": "https://jjwinks.com/pages/style-guide",
+        "alignment": "center",
+        "title": "",
+        "text": "",
+        "banner_size": "small",
+        "full_width": true,
+        "button_label_1": "",
+        "button_link_1": "",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style": "outline",
+        "color_overlay_text": "#ffffff",
+        "color_accent": "#ffffff",
+        "color_overlay": "#000000",
+        "color_overlay_alpha_range": 0
+      }
+    },
+    "16522236343bd98cee": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_LAJ3Vy": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "alignment": "center",
+            "background_color": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_LAJ3Vy"
+      ],
+      "settings": {
+        "full_width": true
+      }
+    },
+    "1651165148243649d3": {
+      "type": "email-signup",
+      "settings": {
+        "title": "Newsletter Signup",
+        "text": "<p>Sign up for exclusive holiday deals and surprise product drops! <br/>Don't worry - we keep it comfy and cozy, not spammy.</p>",
+        "hero_size": "small",
+        "full_width": true,
+        "color_text": "#606060",
+        "color_accent": "#000000",
+        "color_background": "#ffffff",
+        "color_background_alpha_range": 100,
+        "solid_content_background": false,
+        "alignment": "center"
+      }
+    },
+    "banner-download": {
+      "type": "banner-download",
+      "blocks": {
+        "app-store": {
+          "type": "button",
+          "settings": {
+            "image_button": "shopify://shop_images/descarga_1.jpg",
+            "link_button": "https://apps.apple.com/us/app/jjwinks/id1612896693"
+          }
+        },
+        "google-play": {
+          "type": "button",
+          "settings": {
+            "image_button": "shopify://shop_images/descarga_2_1.jpg",
+            "link_button": "https://play.google.com/store/apps/details?id=co.tapcart.app.id_FyZQIT9LZY&pli=1"
+          }
+        }
+      },
+      "block_order": [
+        "app-store",
+        "google-play"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Download-Our-App_-Website-Banner_1.png",
+        "heading": "DOWNLOAD OUR APP",
+        "subheading": "Shop made easier in the app. Stay in the loop, and allow notifications for exclusive early access to new products and holiday promotions"
+      }
+    },
+    "1673983055adb4243a": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "full_width": false
+      }
+    },
+    "22bf2d0c-afd4-4bf9-bffb-6d39ba64ccb9": {
+      "type": "image-with-text",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "section_padding": true,
+        "layout": "left",
+        "image_width": 50,
+        "text_align": "left",
+        "title": "Image with text",
+        "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "1651266311719a2f2a",
+    "df5adbcc-1266-4bae-9ba5-529c5e9d603c",
+    "image_banner_WVC8gp",
+    "4eba6ce9-8c71-47b1-926e-66a915528533",
+    "featured_collection",
+    "1651190281c43c3e5f",
+    "16511907143cc12533",
+    "83e63c6e-1dcb-431e-8521-54b467e48f4f",
+    "featured_grid",
+    "165126722686d3ced1",
+    "16511900866169b29b",
+    "165118998001714998",
+    "image_banner_3ngiJR",
+    "16522236343bd98cee",
+    "1651165148243649d3",
+    "banner-download",
+    "1673983055adb4243a",
+    "22bf2d0c-afd4-4bf9-bffb-6d39ba64ccb9"
+  ]
+}

@@ -1,0 +1,27 @@
+.row-list-icons {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-around;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1rem;
+    padding-top: 30px;
+}
+.icon_container {
+    display: block;
+    margin: 0 auto;
+}
+
+.icon_container img {
+    margin: 0 auto;
+}
+.image-with-icon-list__text {
+    text-align: center;
+    font-size: 12px;
+    padding-top: 10px;
+    line-height: 18px;
+    color: #000;
+    font-weight: 500;
+    margin: 0;
+    max-width: 15ch;
+}

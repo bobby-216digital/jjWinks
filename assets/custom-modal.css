@@ -1,0 +1,101 @@
+custom-modal {
+    display: none;
+    z-index: 90000;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    background-color: rgba(20, 20, 20, 0.6);
+    animation-timing-function: ease;
+    animation-play-state: running;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+    animation-duration: 0.35s;
+    animation-name: klaviyo-fadein;
+}
+
+.container-modal {
+    overflow: visible;
+    transform: scale(1);
+    transform-origin: center center 0px;
+    max-height: 100%;
+    border-radius: 4px;
+    position: relative;
+    outline: 0px;
+    display: flex;
+    justify-content: center;
+    flex: 0 0 auto;
+    align-self: center;
+}
+
+.container-elements {
+    position: relative;
+    flex-direction: column;
+    display: flex;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex: 1 1 0%;
+    align-self: stretch;
+}
+
+.container-button-close {
+    position: relative;
+    display: flex;
+    flex: 1 1 0%;
+    align-self: stretch;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 30px;
+    border-radius: 4px;
+}
+
+.container-button-close button {
+    right: 0px;
+    top: 0px;
+    position: absolute;
+    z-index: 6;
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    margin-right: 8px;
+    margin-top: 8px;
+}
+
+.container-left {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    width: 780px;
+    min-width: 200px;
+    max-width: 1000px;
+    border-radius: 4px;
+    border-style: none;
+    border-width: 0px;
+    border-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    padding: 20px 15px;
+    flex: 1 1 0%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container-right {
+    display: flex;
+    flex-direction: column;
+    width: 390px;
+    margin: -20px -15px -20px 0px;
+    padding: 0px;
+    border-color: transparent transparent transparent currentcolor;
+    border-style: solid solid solid none;
+    border-width: 0px;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    overflow: hidden;
+    min-width: 390px;
+    min-height: 400px;
+}

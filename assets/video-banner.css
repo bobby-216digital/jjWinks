@@ -1,0 +1,16 @@
+.video-banner a:hover, .video-banner a:focus {
+    color: var(--section-text-color)
+}
+  .video-banner .button--outline, .video-banner .prose .button--outline {
+    border-color: var(--section-accent-color);
+    color: var(--section-accent-color)
+}
+  .video-banner .button--outline:hover, .video-banner .button--outline:focus, .video-banner .prose .button--outline:hover, .video-banner .prose .button--outline:focus {
+    border-color: var(--section-text-color);
+    color: var(--section-text-color)
+}
+  .video-banner .button--solid:hover, .video-banner .button--solid:focus, .video-banner .prose .button--solid:hover, .video-banner .prose .button--solid:focus {
+    border-color: var(--section-accent-text-color);
+    background-color: var(--section-accent-text-color);
+    color: var(--section-accent-color)
+}

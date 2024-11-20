@@ -1,0 +1,72 @@
+<ul class="{{ class }} {{ group_class }} list-menu" role="list">
+  {%- for link in menu.links -%}
+    <li class="{{ group_class }}__list-item"{% if link.links != blank %} data-inline-navigation-button{% endif %}>
+      {%- if link.links != blank -%}
+        {%- liquid 
+          if mega_menu == true and link.levels == 2
+            assign show_mega_menu = true
+          else 
+            assign show_mega_menu = false
+          endif  
+        -%}
+        <disclosure-menu>
+          <details id="DetailsMenu-{{ group_class }}-{{ forloop.index }}"
+            class="{{ group_class }}__details"
+            data-link="{{ link.url }}">
+            <summary class="{{ group_class }}__link-item">
+              <div class="{{ group_class }}__summary-container" {% if link.title == 'Vday Gift Guide' %}style="color: #CB4154"{% endif %}>
+                <span {% if link.current %}class="{{ group_class }}__link-item-current"{% endif %}>{{ link.title | escape }}</span>
+                {% render 'icon-ui-chevron-down' %}
+              </div>
+            </summary>          
+            <ul id="InlineMenu-{{ group_class }}-child-{{ forloop.index }}"
+              class="list-menu {{ group_class }}__disclosure {{ group_class }}-child"
+              role="list"
+              tabindex="-1"
+              data-accordion-panel
+              data-accordion-level="1"
+              data-inline-navigation-submenu {% if show_mega_menu %}data-mega-menu="{{ link.links.size }}"{% endif %}>
+              {%- for childlink in link.links -%}
+                <li class="{{ group_class }}-child__list-item"{% if childlink.links != blank %} data-inline-navigation-button{% endif %}>
+                  {%- if childlink.links != blank -%}
+                    <details id="DetailsSubMenu-{{ group_class }}-{{ forloop.index }}" class="{{ group_class }}__details-child" {% if show_mega_menu %}open{% endif %}>
+                      <summary class="{{ group_class }}-child__link-item" {% if show_mega_menu %}tabindex="-1"{% endif %}>
+                        <div class="{{ group_class }}__summary-container">
+                          <span {% if childlink.current %}class="{{ group_class }}__link-item-current"{% endif %}>{{ childlink.title | escape }}</span>
+                          {% render 'icon-ui-chevron-down' %}
+                        </div>
+                      </summary>
+                      <ul id="InlineSubMenu-{{ group_class }}-{{ forloop.index }}"
+                        class="list-menu {{ group_class }}__disclosure {{ group_class }}-grandchild"
+                        role="list"
+                        tabindex="-1"
+                        data-accordion-panel
+                        data-accordion-level="2"
+                        data-inline-navigation-submenu>
+                        {%- for grandchildlink in childlink.links -%}
+                          <li class="{{ group_class }}-grandchild__list-item">
+                            <a href="{{ grandchildlink.url }}" class="{{ group_class }}-grandchild__link-item"{% if grandchildlink.current %} aria-current="page"{% endif %}>
+                              <span {% if grandchildlink.current %}class="{{ group_class }}__link-item-current"{% endif %}>{{ grandchildlink.title | escape }}</span>
+                              </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    </details>
+                  {%- else -%}
+                    <a href="{{ childlink.url }}" class="{{ group_class }}__link-item"{% if childlink.current %} aria-current="page"{% endif %}>
+                      <span {% if childlink.current %}class="{{ group_class }}__link-item-current"{% endif %}>{{ childlink.title | escape }}</span>
+                    </a>
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </details>
+        </disclosure-menu>
+      {%- else -%}
+        <a {% if link.title == 'Vday Gift Guide' %}style="color: #CB4154"{% endif %} href="{{ link.url }}" class="{{ group_class }}__link-item {{ link.title | replace: " ", "-" | downcase }}"{% if link.current %} aria-current="page"{% endif %}>
+          <span {% if link.current %}class="{{ group_class }}__link-item-current"{% endif %}>{{ link.title | escape }}</span>
+        </a>
+      {%- endif -%}
+    </li>
+  {%- endfor -%}
+</ul>

@@ -1,0 +1,132 @@
+{%- liquid
+  assign gift_box = settings.gift_box_product
+%}
+
+<style>
+  .gift-box__wrapper {
+    margin: 0 auto;
+  }
+  .gift-box__options {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .gift-box_option {
+    box-shadow: 9px 5px 10px #dfe3ea, -5px -5px 10px #faffff;
+    padding: 1em;
+    max-width: 60px;
+    border-radius: 100%;
+    margin: 1em .6em;
+    cursor: pointer;
+    background-color:var(--primary-secondary-background-color);
+  }
+  .gift-box_option:hover {
+    box-shadow: inset 5px 5px 10px #dfe3ea, inset -5px -5px 10px #faffff;
+    background-color: #fff;
+  }
+  .gift-box_option:hover .tooltiptext {
+    visibility: visible;
+  }
+  .gift-box_option svg{
+    width: 100%;
+  }
+  .gift-box__text {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .gift-box__text svg {
+    max-width: 25px
+  }
+  .gift-box__text span {
+    font-weight: 600;
+    max-width: 27ch;
+  }
+  
+
+  cart-add-gift .cart-items__container.mx-auto.max-w-screen {
+    max-height:0;
+    overflow: auto;
+    transition: .4s ease-in-out;
+  }
+
+  cart-add-gift .cart-items__container.mx-auto.max-w-screen.active {
+    max-height: 600px;
+  }
+
+  .text-select-gift {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-top: 1rem;
+  }
+
+  .text-select-gift svg {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+
+  .text-select-gift .arrow-down {
+    width: 15px;
+    height: 15px;
+    transition: 0.4s ease-in-out;
+    margin-right: 0;
+    margin-left: 25px;
+  }
+
+  .text-select-gift.active .arrow-down {
+    transform: rotate(180deg);
+    transition: 0.4s ease-in-out;
+  }
+
+  .cart-items + cart-add-gift .cart-items__container.mx-auto.max-w-screen {
+    max-height: 45px;
+    transition: 0.5s;
+  }
+
+  .cart-items + cart-add-gift .cart-items__container.mx-auto.max-w-screen.active {
+    max-height:100%;
+  }
+  @media(max-width: 768px) {
+    .gift-box__options {
+      flex-direction: column;
+      text-align: center
+    }
+    .gift-box__text svg {
+      margin: 0 auto;
+    }
+  }
+
+</style>
+
+  <div class="text-select-gift">
+    {% render 'icon-ui-gift' %}
+    <span>Is This a Gift?</span>
+    {%- render "icon-arrow-down"-%}
+  </div>
+  <div class="gift-box__wrapper p-5 ">
+    <input name="id" value="{{ gift_box.selected_or_first_available_variant.id }}" type="hidden">
+    <input name="pr" value="{{ gift_box.price | money }}" type="hidden">
+    <input name="cur" value="{{ cart.currency.symbol }}" type="hidden">
+
+    <input name="url_remove" value="{{ gift_box.selected_or_first_available_variant.url_to_remove }}" type="hidden">
+    <div class="gift-box__options">
+      <div class="gift-box__text">
+        
+        <span>Do you want a {{ gift_box.title }}? Only {{ gift_box.price | money }} </span>
+        </div>
+      
+      <button type="button" class="cart__update-button button button--cta button--outline gift-add">
+          <span>Add To Cart </span>
+      </button>
+    </div>
+    </div>
+  
+  </div>
+
+

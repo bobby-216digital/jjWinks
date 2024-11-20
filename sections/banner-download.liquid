@@ -1,0 +1,68 @@
+{{ 'banner-download-app.css' | asset_url | stylesheet_tag: preload: true }}
+
+{% if section.settings.image != blank %}
+<div class="container-banner-download-app">
+  <img
+    class="img-main"
+    src="{{ section.settings.image | image_url }}"
+    alt="">
+{% endif %}
+
+<div class="content-banner">
+  {% if section.settings.heading != blank %}
+    <h3>{{ section.settings.heading }}</h3>
+  {% endif %}
+
+  {% if section.settings.subheading != blank %}
+    <p>{{ section.settings.subheading }}</p>
+  {% endif %}
+
+  <div class="btn-download">
+    {% for block in section.blocks %}
+      <a href="{{ block.settings.link_button }}" target="_blank">
+        <img src="{{ block.settings.image_button | image_url }}" alt="">
+      </a>
+    {% endfor %}
+  </div>
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "Banner Download App",
+  "tag": "section",
+  "class": "banner-download-app",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image Main"
+    }, {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    }, {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sub Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Download button",
+      "type": "button",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_button",
+          "label": "Button image"
+        }, {
+          "type": "url",
+          "id": "link_button",
+          "label": "Button link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

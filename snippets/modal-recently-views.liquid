@@ -1,0 +1,34 @@
+{{ 'modal-recentl-view.css' | asset_url | stylesheet_tag: preload: true }}
+<script src="{{ 'modal-recentl-view.js' | asset_url }}" defer="defer"></script>
+<custom-recently-products
+  class="container-product-recently product-recently-product--one"
+>
+  <button class="button-prodoct-recently">Recently Viewed</button>
+  <div class="container-slider">
+    <div
+      class="product-recently-arrows product-recently-prev swiper-button-disabled"
+      style="display: block;"
+      tabindex="-1"
+      role="button"
+      aria-label="Previous slide"
+      aria-controls="swiper-wrapper-81085038cd25ea8d5"
+      aria-disabled="true"
+    >
+      <img src="https://cdn.shopify.com/s/files/1/2641/6340/files/7d41d70d.png?v=1677863608">
+    </div>
+    <div class="swiper">
+      <div class="swiper-wrapper"></div>
+    </div>
+    <div
+      class="product-recently-arrows product-recently-next swiper-button-disabled"
+      style="display: block;"
+      tabindex="-1"
+      role="button"
+      aria-label="Next slide"
+      aria-controls="swiper-wrapper-81085038cd25ea8d5"
+      aria-disabled="true"
+    >
+      <img src="https://cdn.shopify.com/s/files/1/2641/6340/files/4ea421e7.png?v=1677863608">
+    </div>
+  </div>
+</custom-recently-products>

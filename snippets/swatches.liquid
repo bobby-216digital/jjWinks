@@ -1,0 +1,98 @@
+{% comment %}
+    Renders product swatches
+
+    Accepts:
+    - product: {Object} Product Liquid object (optional)
+    - swatch_shape: {String} "circle" or "square"
+
+    Usage:
+    {% render 'swatches', swatch_shape: section.settings.swatch_shape %}
+{% endcomment %}
+
+{%- liquid
+  assign color_language_options = 'products.product.color_option' | t | downcase
+
+  for option in product.options_with_values
+    assign option_name = option.name | downcase
+    if option_name contains color_language_options
+      assign color_option = option
+      assign color_option_position = 'option' | append: option.position
+      break
+    endif
+  endfor
+-%}
+
+{%- if color_option -%}
+  <swatch-radios>
+    <fieldset class="swatches flex flex-wrap justify-center space-x-1 z-20 relative">
+      {%- for value in color_option.values -%}
+
+        {%- liquid
+          assign swatch_color = value | escape
+          assign swatch_color_metafield = product.metafields.swatches[swatch_color]
+          if swatch_color_metafield == nil
+            assign swatch_color_metafield = shop.metafields.swatches[swatch_color]
+          endif
+
+          if swatch_color_metafield and swatch_color_metafield.type == 'color'
+            capture swatch_color_metafield_styles
+              echo 'background-color: '
+              echo swatch_color_metafield.value
+              echo ';'
+            endcapture
+          else
+            assign swatch_color_css = swatch_color | handle | replace: '-', ''
+            capture swatch_color_metafield_styles
+              echo 'background-color: '
+              echo swatch_color_css
+              echo ';'
+            endcapture
+          endif
+
+          for variant in product.variants
+            if variant[color_option_position] == value
+              assign color_variant_id = variant.id
+              assign color_variant_url = variant.url | within: collection
+              if variant.image
+                assign color_variant_image = variant.image | image_url: width: 640
+              endif
+            endif
+          endfor
+        -%}
+
+        <style>
+          [data-swatch-id="{{ value | handle }}-{{ product.id }}"] .swatch-item__color {
+            {{ swatch_color_metafield_styles }}
+          }
+        </style>
+        <input type="radio" {% if forloop.first %}checked="checked"{% endif %}
+          id="{{ value | handle }}-{{ product.id }}-{{ section.id }}"
+          name="swatch-{{ product.id }}-{{ section.id }}"
+          value="{{ value | escape }}"
+          data-variant-id="{{ color_variant_id }}"
+          data-variant-url="{{ color_variant_url }}"
+          data-variant-image="{{ color_variant_image }}"
+          class="swatch-item sr-only">
+        <label for="{{ value | handle }}-{{ product.id }}-{{ section.id }}"
+          title="{{ value | escape }}"
+          data-swatch-id="{{ value | handle }}-{{ product.id }}"
+          class="swatch-item__label {% if forloop.first %}swatch-item__link--active {% endif %}block p-0 w-6 h-6 {% if swatch_shape == 'circle' %}rounded-full{% endif %} cursor-pointer border border-solid border-primary-background">
+          <div class="swatch-item__color bg-primary-text-10 border-2 border-primary-background h-full w-full {% if swatch_shape == 'circle' %}rounded-full{% endif %}" tabindex="-1">
+            <span class="swatch-item__value sr-only">{{ value | escape }}</span>
+            {%- if swatch_color_metafield and swatch_color_metafield.type == 'file_reference' -%}
+              {%- assign swatch_image_class = 'object-contain w-full h-full' -%}
+              {%- if swatch_shape == 'circle' -%}
+                {%- assign swatch_image_class = swatch_image_class | append: ' rounded-full' -%}
+              {%- endif -%}
+              {{ swatch_color_metafield.value | image_url: width: 36 | image_tag: 
+                class: swatch_image_class,
+                widths: '18, 36',
+                loading: 'lazy' }}
+            {%- endif -%}
+          </div>
+        </label>
+
+      {%- endfor -%}
+    </fieldset>
+  </swatch-radios>
+{%- endif -%}
