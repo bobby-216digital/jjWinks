@@ -40,7 +40,7 @@
         </div>
       {%- endif -%}
     </div>
-    <div class="product__info-container col-span-10 md:col-span-5 lg:col-span-4 space-y-4 md:space-y-7">
+    <div id="ProductInfo-{{ section.id }}" class="product__info-container col-span-10 md:col-span-5 lg:col-span-4 space-y-4 md:space-y-7">
       <div class="product__details {{ product_details_class }}">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
@@ -226,7 +226,7 @@
                               <label class="swatch-item__label product-form__radio-swatch-label"
                                 for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
                                 data-swatch-id="{{ value | handle }}-{{ product.id }}">
-                                <div class="swatch-item__color {% if block.settings.swatch_shape == 'circle' %}rounded-full{% endif %}" tabindex="-1">
+                                <div class="swatch-item__color {% if block.settings.swatch_shape == 'circle' %}rounded-full{% endif %}" tabindex="0" role="button" onkeydown="keyToClick(event);">
                                   <span class="swatch-item__value sr-only">{{ value | escape }}</span>
                                 </div>
                                 <div aria-hidden="true" class="product-form__radio-label--cross-out hidden absolute -inset-px pointer-events-none">

@@ -105,7 +105,7 @@
                 </div>
 
                 {%- if block.settings.link != blank -%}
-                  <a href="{{ block.settings.link }}" class="slide__link absolute inset-0 z-30"><span class="sr-only">{{ block.settings.title | escape }}</span></a>
+                  <a aria-label="View {{ block.settings.image.alt | escape }}" href="{{ block.settings.link }}" class="slide__link absolute inset-0 z-30"><span class="sr-only">{{ block.settings.title | escape }}</span></a>
                 {%- endif -%}
 
                 <div class="slide__image relative z-10">

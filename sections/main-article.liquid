@@ -166,7 +166,7 @@
                   <article id="{{ comment.id }}" class="comment__item bg-primary-background p-5 prose">
                     {{ comment.content }}
                     <footer class="flex justify-end font-navigation font-weight-navigation text-xs text-primary-text-80">
-                      <span class="font-weight-navigation-bolder pr-1.5 mr-1.5 border-r border-primary-text-50">{{ comment.author }}</span><span>{{ comment.created_at | time_tag: format: 'date' }}</span>
+                      <span class="pr-1.5 mr-1.5 border-r border-primary-text-50">{{ comment.author }}</span><span><strong>{{ comment.created_at | time_tag: format: 'date' }}</strong></span>
                     </footer>
                   </article>
                 {%- endif -%}
@@ -175,7 +175,7 @@
                   <article id="{{ comment.id }}" class="comment__item bg-primary-background p-5 prose">
                     {{ comment.content }}
                     <footer class="flex justify-end font-navigation font-weight-navigation text-xs text-primary-text-80">
-                      <span class="font-weight-navigation-bolder pr-1.5 mr-1.5 border-r border-primary-text-50">{{ comment.author }}</span><span>{{ comment.created_at | time_tag: format: 'date' }}</span>
+                      <span class="pr-1.5 mr-1.5 border-r border-primary-text-50">{{ comment.author }}</span><span><strong>{{ comment.created_at | time_tag: format: 'date' }}</strong></span>
                     </footer>
                   </article>
                 {% endfor %}

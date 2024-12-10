@@ -58,7 +58,7 @@
         zoom: section.settings.product_featured_zoom_enable,
       -%}
     </div>
-    <div class="product__info-container col-span-10 md:col-span-5 lg:col-span-4 space-y-4 md:space-y-7">
+    <div id="ProductInfo-{{ section.id }}" class="product__info-container col-span-10 md:col-span-5 lg:col-span-4 space-y-4 md:space-y-7">
       <div class="product__details {{ product_details_class }}">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
@@ -195,7 +195,7 @@
                   {% for product_item in product.metafields.custom.bundle_product.value %}
                     <a class="item" target="_blank" href="/products/{{ product_item.product.handle }}" data-color="{{ product_item.option1 }}" data-product-id="{{ product_item.product.id }}">
                       <figure class="bundle-item">
-                        <img class="image-product" src="{{ product_item.featured_image | image_url }}">
+                        <img alt="{{ product_item.product.title | escape }} Featured Image" class="image-product" src="{{ product_item.featured_image | image_url }}">
                         <figcaption >{{ product_item.product.title }}</figcaption>
                       </figure>
                       <span class="notification-bundle">
