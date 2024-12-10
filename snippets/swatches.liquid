@@ -25,6 +25,7 @@
 {%- if color_option -%}
   <swatch-radios>
     <fieldset class="swatches flex flex-wrap justify-center space-x-1 z-20 relative">
+      <legend class="visually-hidden">View Variant(s) for {{ product.title | escape }}</legend>
       {%- for value in color_option.values -%}
 
         {%- liquid
@@ -77,7 +78,7 @@
           title="{{ value | escape }}"
           data-swatch-id="{{ value | handle }}-{{ product.id }}"
           class="swatch-item__label {% if forloop.first %}swatch-item__link--active {% endif %}block p-0 w-6 h-6 {% if swatch_shape == 'circle' %}rounded-full{% endif %} cursor-pointer border border-solid border-primary-background">
-          <div class="swatch-item__color bg-primary-text-10 border-2 border-primary-background h-full w-full {% if swatch_shape == 'circle' %}rounded-full{% endif %}" tabindex="-1">
+          <div class="swatch-item__color bg-primary-text-10 border-2 border-primary-background h-full w-full {% if swatch_shape == 'circle' %}rounded-full{% endif %}" tabindex="0" role="button" onkeydown="keyToClick(event);">
             <span class="swatch-item__value sr-only">{{ value | escape }}</span>
             {%- if swatch_color_metafield and swatch_color_metafield.type == 'file_reference' -%}
               {%- assign swatch_image_class = 'object-contain w-full h-full' -%}

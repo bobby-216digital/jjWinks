@@ -99,9 +99,9 @@
       if (review.score > 4) {
         sliderContainer.innerHTML += `
        <div class="testimonial carousel-cell">
-        <img src="${svgSource}" loading="lazy">
+        <img alt="Quote Icon" src="${svgSource}" loading="lazy">
         <blockquote>${review.content}</p></blockquote>
-        <h4>${review.name}</h4>
+        <div class="testimonialLabel">${review.name}</div>
         </div>
        `;
       }

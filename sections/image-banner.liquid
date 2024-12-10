@@ -76,7 +76,7 @@
         {%- endif -%}
       </div>
     </div>
-    <a href="{{ section.settings.link_git }}">
+    <a aria-label="View {{ section.settings.image.alt | escape }}" href="{{ section.settings.link_git }}">
     <div class="image-banner__overlay absolute inset-0 z-20 bg-section-overlay"></div>
     <div class="image-banner__image-contain absolute inset-0 w-full h-full bg-section-overlay">
      
@@ -96,7 +96,7 @@
     {%- if section.settings.mobile_image != blank -%}
       {% assign image_mobile = section.settings.mobile_image %}
     {%- endif -%}
-    <a href="{{ section.settings.link_git }}">
+    <a aria-label="View {{ image_mobile.alt | escape }}" href="{{ section.settings.link_git }}">
     <div class="image-banner__image-contain absolute inset-0 w-full h-full bg-section-overlay">
       {%- if image_mobile != blank -%}
         {{ image_mobile | image_url: width: 1920 | image_tag:

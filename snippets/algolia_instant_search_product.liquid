@@ -211,7 +211,7 @@
                   data-variant-image="${selectedVariant.image }"
                   data-swatch-id="${color_handle}-${productData.id}"
                   class="swatch-item__label block p-0 w-6 h-6 rounded-full cursor-pointer border border-solid border-primary-background">
-                  <div class="swatch-item__color bg-primary-text-10 border-2 border-primary-background h-full w-full rounded-full" tabindex="-1">
+                  <div class="swatch-item__color bg-primary-text-10 border-2 border-primary-background h-full w-full rounded-full" tabindex="0" role="button" onkeydown="keyToClick(event);">
                     <span class="swatch-item__value sr-only">${value}</span>
                     ${(swatch_color && swatch_color.type === 'image') && html`<img loading="lazy" src="${swatch_color.value}" class="object-contain w-full h-full rounded-full" />`}
                   </div>

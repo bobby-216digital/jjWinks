@@ -179,15 +179,15 @@
     class="font-body bg-section-background "
     data-page-type="{{ request.page_type }}"
   >
-    <a class="skip-to-content-link button sr-only" href="#MainContent">
-      {{ 'accessibility.skip_to_text' | t }}
+    <a class="skip-link" href="#MainContent">
+      Skip to Content
     </a>
     {%- section 'promos' -%}
     {%- section 'header-top' -%}
     {%- section 'header' -%}
     {% render 'modal-recently-views' %}
 
-    <main id="MainContent" class="content-for-layout bg-primary-background" role="main">
+    <main id="MainContent" class="content-for-layout bg-primary-background">
       {{ content_for_layout }}
     </main>
 
@@ -227,6 +227,73 @@
       {% render 'pickystory-combos-prerender' %}
     {% endif %}
     <!-- PickyStory code end -->
+
+<style>
+  *:focus-visible {
+    border: 2px solid black;
+  }
+
+.skip-link {
+                position: absolute;
+                left: -10000px;
+                top: 0px;
+                padding: 12px;
+                background-color: white;
+                color: black;
+                border: 2px solid black;
+                border-radius: 5px;
+                z-index: 999999999;
+            }
+            .skip-link:focus-visible {
+                left: 0px;
+            }
+  .product__price .price-item {
+    font-weight: unset !important;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    left: -10000px;
+  }
+    
+  .footer-section__copyright a {
+    text-decoration: underline !important;
+  }
+
+  .testimonialLabel {
+    padding: .5em 0;
+    font-family: var(--heading-font-family);
+    font-weight: var(--heading-weight);
+    color: var(--primary-title-color);
+    text-transform: var(--heading-capitalize);    
+  }
+
+  .footer-menu__list-item a {
+    font-size: 16px !important;
+  }
+</style>
+
+<script>
+setTimeout(() => {
+  let promoSlide = document.querySelectorAll(".promos-slider__item")
+    if (promoSlide) {
+      for (let i = 0; i < promoSlide.length; i++) {
+        promoSlide[i].removeAttribute("aria-hidden");
+      }
+    }
+}, 750);
+
+function keyToClick(event) {
+                if (event.key == "Enter") {
+                    event.preventDefault();
+                    event.target.click();
+                }
+            }
+
+    document.addEventListener('focus', function() {
+    console.log('focused: ', document.activeElement)
+  }, true);
+</script>
   </body>
 
   <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/f1orBhbXQ6wixqnZuQ2HBQ" async></script>

@@ -64,7 +64,7 @@
         >
           <div
             class="swatch-item__color {% if block.settings.swatch_shape == 'circle' %}rounded-full{% endif %}"
-            tabindex="-1"
+            tabindex="0" role="button" onkeydown="keyToClick(event);"
           >
             <span class="swatch-item__value sr-only">{{ value | escape }}</span>
           </div>
@@ -159,7 +159,7 @@
         >
           <div
             class="swatch-item__color {% if block.settings.swatch_shape == 'circle' %}rounded-full{% endif %}"
-            tabindex="-1"
+            tabindex="0" role="button" onkeydown="keyToClick(event);"
           >
             <span class="swatch-item__value sr-only">{{ value | escape }}</span>
           </div>

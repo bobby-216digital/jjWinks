@@ -89,13 +89,15 @@
       {%- endcapture -%}
 
       {%- if request.page_type == 'index' -%}
-        <h1 class="header-primary__heading">
+        <div class="header-primary__heading">
+          <span class="visually-hidden">{{ section.settings.logo.alt | escape }}</span>
           {{- header_logo -}}
           {% render 'qr-popup' %}
-        </h1>
+        </div>
         
       {%- else -%}
         <div class="header-primary__heading">
+          <span class="visually-hidden">{{ section.settings.logo.alt | escape }}</span>
           {{- header_logo -}}
           {% render 'qr-popup' %}
         </div>

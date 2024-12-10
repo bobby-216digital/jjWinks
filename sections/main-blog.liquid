@@ -121,7 +121,7 @@
 
             {%- if section.settings.show_read_more -%}
               <div class="max-w-[100ch] mx-auto mt-4 mb-2">
-                <a href="{{ article.url }}" class="article-grid__read-more button button--outline button--small">{{ 'blogs.article.read_more' | t }}</a>
+                <a href="{{ article.url }}" class="article-grid__read-more button button--outline button--small">{{ 'blogs.article.read_more' | t }}<span class="visually-hidden"> About {{ article.title | escape }}</span></a>
               </div>
             {%- endif -%}
 
@@ -184,7 +184,7 @@
             {%- endif -%}
 
             {%- if section.settings.show_read_more -%}
-              <a href="#" class="article-grid__read-more button button--outline button--small">{{ 'blogs.article.read_more' | t }}</a>
+              <a href="#" class="article-grid__read-more button button--outline button--small">{{ 'blogs.article.read_more' | t }}<span class="visually-hidden"> About {{ article.title | escape }}</span></a>
             {%- endif -%}
 
           </li>

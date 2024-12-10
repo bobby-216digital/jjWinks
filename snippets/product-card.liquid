@@ -101,10 +101,7 @@
 
 <div class="grid-item group relative h-full">
   <button data-with-epi="true" class="swym-button swym-add-to-wishlist-view-product product_{{ product.id }} right-0" data-swaction="addToWishlist" data-product-id="{{ product.id | json }}" data-variant-id="{{ product.variants[0].id }}" data-product-url="{{ shop.url }}{{ product.url }}"></button>
-  <a class="product-card__link absolute inset-0 z-10" href="{{ product_url }}" data-product-card-link>
-    <span class="invisible">
-      {{ product.title }}
-    </span>
+  <a aria-label="View {{ product.title | escape }}" class="product-card__link absolute inset-0 z-10" href="{{ product_url }}" data-product-card-link>
   </a>
   <div id="{{ product_card_id }}" class="product-card relative flex flex-col flex-wrap items-stretch space-y-3 h-full {% if class %}{{ class }}{% endif %}" data-product-url="{{ product.url }}" data-product-available="{{ available }}" data-product-on-sale="{{ on_sale }}" data-product-card="{{ product.id }}" {{ attributes }}>
     <quick-add>

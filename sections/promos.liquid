@@ -26,7 +26,7 @@
   data-section-id="{{ section.id }}"
   data-sticky="{%- if section.settings.scroll_lock -%}true{%- else -%}false{%- endif -%}"
 >
-  <a href="javascript:void(0)" role="button" class="play-pause-button pause hidden">
+  <a aria-label="Pause Icon" href="javascript:void(0)" role="button" class="play-pause-button pause hidden">
     <svg
       width="20"
       height="20"
@@ -39,7 +39,7 @@
       <rect x="13" y="2" width="3" height="16"></rect>
     </svg>
   </a>
-  <a href="javascript:void(0)" role="button" class="play-pause-button play hidden">
+  <a aria-label="Play Icon" href="javascript:void(0)" role="button" class="play-pause-button play hidden">
     <svg
       width="20"
       height="20"

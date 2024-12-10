@@ -4,6 +4,7 @@
 <div class="container-banner-download-app">
   <img
     class="img-main"
+    alt="{{ section.settings.image.alt | escape }}"
     src="{{ section.settings.image | image_url }}"
     alt="">
 {% endif %}
@@ -20,7 +21,7 @@
   <div class="btn-download">
     {% for block in section.blocks %}
       <a href="{{ block.settings.link_button }}" target="_blank">
-        <img src="{{ block.settings.image_button | image_url }}" alt="">
+        <img alt="{{ block.settings.image_button.alt | escape }}" src="{{ block.settings.image_button | image_url }}">
       </a>
     {% endfor %}
   </div>
